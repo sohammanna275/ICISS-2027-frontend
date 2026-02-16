@@ -1,0 +1,180 @@
+/* @import "tailwindcss";
+
+@theme {
+  --color-iciss-blue: #2b5a9e;
+  --color-iciss-dark: #1e3a5f;
+  --color-iciss-gold: #ffcc00;
+  --font-display: "Poppins", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply m-0 p-0 antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+
+.rounded-3xl {
+  border-radius: 2rem;
+}
+
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+} */
+
+/* @import "tailwindcss";
+
+@theme {
+  --color-iciss-blue: #4a82d3;
+  --color-iciss-dark: #1e3a5f;
+  --color-iciss-gold: #ffcc00;
+  
+  --font-display: "Montserrat", sans-serif;
+}
+
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@800;900&display=swap');
+  
+  body {
+    @apply m-0 p-0 antialiased bg-white;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+.gallery-card {
+  @apply rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-500 border-4 border-transparent hover:border-white/30;
+}
+
+
+h1, h2 {
+  font-family: var(--font-display);
+  text-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+} */
+
+@import "tailwindcss";
+
+@theme {
+  /* Using 'Montserrat' for the heavy titles and 'Inter' for clean body text */
+  --font-display: "Montserrat", sans-serif;
+  --font-sans: "Inter", sans-serif;
+
+  --color-iciss-blue: #4a82d3;
+  --color-iciss-dark: #1e3a5f;
+  --color-iciss-gold: #ffcc00;
+}
+
+@layer base {
+  /* Importing high-weight variants: 800 (Extra-Bold) and 900 (Black) */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@800;900&display=swap');
+  
+  body {
+    @apply m-0 p-0 antialiased bg-white;
+    font-family: var(--font-sans);
+  }
+}
+
+/* Custom shadow and shape for the rounded cards */
+.gallery-card {
+  @apply rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-300;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+}
+
+/* Heavy Title Styling matching image_6c88e5.png */
+.hero-text {
+  font-family: var(--font-display);
+  @apply text-white text-center font-[900] uppercase leading-[1.1] tracking-tight;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+@theme {
+  --color-midnight: #1e1b4b; /* Matches the dark background in image_6cf1e8.jpg */
+}
+
+/* Ensure the iframe inside the rounded container behaves */
+iframe {
+  filter: grayscale(10%) contrast(1.1);
+  transition: filter 0.3s ease;
+}
+
+iframe:hover {
+  filter: grayscale(0%) contrast(1.2);
+}
+
+@theme {
+  /* ... your existing colors ... */
+  
+  --animate-breath: breath 3s ease-in-out infinite;
+
+  @keyframes breath {
+    0%, 100% {
+      transform: scale(1);
+      text-shadow: 0 0 0px rgba(251, 191, 36, 0);
+    }
+    50% {
+      transform: scale(1.1); /* Makes it bigger */
+      text-shadow: 0 0 15px rgba(251, 191, 36, 0.6); /* Inside-outside glow */
+    }
+  }
+}
+
+@layer components {
+  /* This ensures all logo containers have the same sleek white card look */
+  .partner-card {
+    @apply bg-white p-6 rounded-[1.5rem] shadow-lg flex items-center justify-center;
+    aspect-ratio: 1 / 1;
+  }
+}
+@layer components {
+  /* This matches the refined, dense text style in the dark blue section */
+  .about-text-refined {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.01em;
+    word-spacing: 0.05em;
+  }
+}
+
+/* Heavy Title Styling */
+.hero-text {
+  font-family: var(--font-display);
+  @apply text-white text-center font-[900] uppercase tracking-tighter; /* Added tracking-tighter */
+  text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.hero-text h1 {
+  line-height: 1.1; /* Tightens the gap between the two lines of the title */
+}
+
+.hero-text h2 {
+  line-height: 1;
+  margin-top: 0.5rem;
+}
+
+nav button, nav a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0.5rem 0; /* Tight vertical padding for links */
+}
+
+table {
+  border-spacing: 0;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Matching the thin blue separator line between dark cards */
+.section-separator {
+  @apply h-1 bg-iciss-blue w-full;
+}
+
+/* Ensure footer links use the correct brand color */
+footer a {
+  font-family: var(--font-sans);
+}
