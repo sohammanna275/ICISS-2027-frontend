@@ -389,7 +389,7 @@ const ConferenceDetails = () => (
 );
 
 const VenueSection = () => (
-  <div className="bg-iciss-blue px-4 py-6"> {/* Blue background wrapper */}
+  <div className="bg-iciss-blue px-4 py-6"> 
     <div className="max-w-6xl mx-auto bg-[#1e1b4b] py-16 px-4 text-center rounded-2xl shadow-2xl">
       {/* <h3 className="text-white text-4xl md:text-5xl font-black uppercase mb-12 tracking-tight">
         Venue
@@ -398,7 +398,6 @@ const VenueSection = () => (
           Venue
         </h3>
 
-      {/* Map Container - made slightly smaller to fit inside the card */}
       <div className="max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.743114515286!2d88.30452607594966!3d22.55127823374825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0279c91a32997b%3A0xc399f928a68b4491!2sIndian%20Institute%20of%20Engineering%20Science%20and%20Technology%2C%20Shibpur!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
