@@ -258,8 +258,8 @@ const Navbar = () => (
     <nav className="max-w-6xl mx-auto bg-iciss-dark rounded-xl py-2 px-6 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-4">
       <div className="flex-shrink-0">
         <img
-          src="./icisslogo.ico"
-          alt="ICISS 2024 Logo"
+          src="./ICISS2027logo.png"
+          alt="ICISS 2027 Logo"
           // Reduced height slightly to keep the bar slim
           className="h-12 w-auto drop-shadow-md"
         />
