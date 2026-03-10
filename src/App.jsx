@@ -380,9 +380,9 @@ const ConferenceDetails = () => (
         <p className="text-white text-xl md:text-3xl font-medium mb-4">
           20<sup>th</sup> to 22<sup>nd</sup> December 2027
         </p>
-        <button className="text-[#fbbf24] hover:text-yellow-300 text-xl md:text-3xl font-bold transition-all duration-500 uppercase tracking-wider underline underline-offset-8 cursor-pointer">
+        {/* <button className="text-[#fbbf24] hover:text-yellow-300 text-xl md:text-3xl font-bold transition-all duration-500 uppercase tracking-wider underline underline-offset-8 cursor-pointer">
           View Best Paper Awards
-        </button>
+        </button> */}
       </div>
     </div>
   </div>
