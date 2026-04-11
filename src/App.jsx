@@ -126,7 +126,7 @@ const ConferenceDetails = () => (
   <div className="bg-iciss-blue px-4 py-6">
     <div className="max-w-6xl mx-auto bg-[#1e1b4b] py-10 px-4 text-center rounded-2xl shadow-2xl">
       <h3 className="text-white text-2xl md:text-4xl font-bold mb-2 uppercase tracking-wide">Conference Date:</h3>
-      <p className="text-white text-xl md:text-3xl font-medium">20<sup>th</sup> to 22<sup>nd</sup> December 2027</p>
+      <p className="text-white text-xl md:text-3xl font-medium">14<sup>th</sup> to 16<sup>nd</sup> January 2027</p>
     </div>
   </div>
 );
@@ -181,10 +181,11 @@ const AboutIIESTSection = () => (
             The college provides ample opportunities for students and faculty to engage in research activities across various disciplines. With its dedicated research facilities and experienced faculty members, IIEST Shibpur offers a conducive environment for students to explore new ideas and contribute to the advancement of knowledge.
           </p>
         </div>
-
+        <a href = "https://www.iiests.ac.in/IIEST/About#:~:text=About%20IIEST%2C%20Shibpur,-IIEST%2C%20Shibpur%20(Erstwhile&text=The%20Institute%20has%20a%20rich,16%20departments%20and%208%20schools.">
         <button className="mt-8 px-6 py-2 bg-white text-[#1e1b4b] font-bold rounded-md hover:bg-gray-200 transition-colors text-sm uppercase">
           Know More
         </button>
+        </a>
       </div>
     </div>
   </section>
