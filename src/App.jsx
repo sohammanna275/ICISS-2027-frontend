@@ -202,14 +202,14 @@ const AboutICISS = () => (
         </h2>
         <div className="space-y-8 text-base md:text-lg leading-relaxed font-normal opacity-90">
           <p>
-            The International Conference on Intelligent Systems and Security is set to take place in December 2024, and will bring together industry experts, practitioners, and researchers in the field.
+            The International Conference on Intelligent Systems and Security is set to take place in January 2027, and will bring together industry experts, practitioners, and researchers in the field.
             Attendees will have the opportunity to network and collaborate with other professionals in the field. This conference is highly recommended for those looking to stay up-to-date with the latest developments in intelligent systems and security, and to exchange ideas and collaborate on future projects.
           </p>
 
           <div className="space-y-3">
             <h3 className="text-2xl font-bold text-white">Aim:</h3>
             <p>
-              The aim of ICISS 2024 is to bring together researchers, practitioners, and industry experts from around the world to foster the exchange of ideas, advances, and innovations in the field of intelligent systems and security. By promoting collaboration and knowledge sharing, ICISS aims to drive the development and adoption of intelligent systems and security technologies.
+              The aim of ICISS 2027 is to bring together researchers, practitioners, and industry experts from around the world to foster the exchange of ideas, advances, and innovations in the field of intelligent systems and security. By promoting collaboration and knowledge sharing, ICISS aims to drive the development and adoption of intelligent systems and security technologies.
             </p>
           </div>
 
@@ -235,9 +235,7 @@ const ContactPage = () => (
       <div className="grid grid-cols-1 gap-6">
         {[
           { title: "General Contact", email: "conference.iciss@gmail.com" },
-          { title: "Shyamlendu Kandar", email: "shyamalenduk@it.iiests.ac.in", phone: "+91 70031 98150" },
-          { title: "Ruchira Naskar", email: "ruchira@it.iiests.ac.in" },
-          { title: "Chandan Giri", email: "chandan@it.iiests.ac.in" }
+          { title: "Shyamlendu Kandar", email: "shyamalenduk@it.iiests.ac.in", phone: "+91 70031 98150" }
         ].map((contact, idx) => (
           <div key={idx} className="bg-[#241b5e]/50 border border-white/5 p-8 rounded-2xl shadow-lg transition-transform hover:scale-[1.02]">
             <h3 className="text-white text-xl font-bold mb-4">{contact.title}</h3>
