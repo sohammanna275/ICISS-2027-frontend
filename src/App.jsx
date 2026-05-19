@@ -739,6 +739,9 @@ const ContributionTracksPage = () => {
 /* ─────────────────────────────────────────────────────
    SUBMIT PAPER
 ───────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────
+   SUBMIT PAPER
+───────────────────────────────────────────────────── */
 const SubmitPaperPage = () => {
   const content = [
     'The authors are pleasingly invited to submit the full paper of their original, unpublished, research contribution which is not currently under review by another conference or journal. Only the accepted and registered papers will be allowed to present at the conference.',
@@ -756,7 +759,8 @@ const SubmitPaperPage = () => {
           className="btn-primary" style={{ marginTop: '2rem', display: 'inline-flex' }}>
           Submit Your Paper →
         </a>
-        <p>
+        
+        <p style={{ marginTop: '2rem', fontSize: '0.9rem', color: '#555' }}>
           The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
         </p>
       </div>
