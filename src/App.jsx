@@ -536,6 +536,9 @@ const CommitteePage = () => {
       { name: 'Dr. Malay Kule', title: 'IIEST, Shibpur, India' },
       { name: 'Dr. Samit Biswas', title: 'IIEST, Shibpur, India' },
     ]},
+    { category: 'Finance Committee', members: [
+      { name: 'Dr. Surajit Kumar Roy', title: 'IIEST, Shibpur, India' },
+    ] },
     { category: 'Event Management Committee', members: [] },
     { category: 'Technical Program Committee', members: [] },
   ];
