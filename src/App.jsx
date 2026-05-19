@@ -757,7 +757,7 @@ const SubmitPaperPage = () => {
           Submit Your Paper →
         </a>
         <p style={{ marginTop: '1.5rem', fontSize: '0.875rem', color: 'var(--text-muted, #94a3b8)', lineHeight: '1.6', fontStyle: 'italic' }}>
-          * The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
+          The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
         </p>
       </div>
     </section>
