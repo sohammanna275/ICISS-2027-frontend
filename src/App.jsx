@@ -303,7 +303,7 @@ const Hero = () => (
         <div className="hero-eyebrow">IIEST Shibpur · Kolkata, India</div>
 
         <h1 className="hero-h1">
-          International Conference on<br />
+          3<sup>rd</sup> International Conference on<br />
           <em>Intelligent Systems</em> &amp; Security
         </h1>
 
