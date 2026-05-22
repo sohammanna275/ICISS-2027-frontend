@@ -1089,3 +1089,266 @@ iframe { display: block; }
 .conf-date-row.highlight .conf-date-val {
   color: #f0c958;
 }
+
+/* ══════════════════════════════════════════════════════
+   IMPORTANT DATES TIMELINE  — add to App.css
+══════════════════════════════════════════════════════ */
+
+.timeline-section {
+  padding: 5rem 1.5rem 6rem;
+  position: relative;
+}
+
+.timeline-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ── The vertical rail ── */
+.timeline-track {
+  position: relative;
+  margin-top: 3.5rem;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(201, 168, 76, 0.4) 8%,
+    rgba(201, 168, 76, 0.4) 92%,
+    transparent 100%
+  );
+}
+
+/* ── Each row ── */
+.timeline-item {
+  display: grid;
+  grid-template-columns: 1fr 56px 1fr;
+  align-items: center;
+  gap: 0 1.5rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Date (left column) ── */
+.timeline-date-col {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.timeline-date {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: rgba(200, 220, 255, 0.75);
+  text-align: right;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  padding: 0.5rem 0;
+}
+
+/* ── Dot (center column) ── */
+.timeline-dot-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-dot {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  position: relative;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.12);
+}
+
+/* Dot color variants */
+.timeline-dot--blue {
+  background: rgba(29, 111, 232, 0.18);
+  border: 2px solid rgba(29, 111, 232, 0.5);
+  box-shadow: 0 0 18px rgba(29, 111, 232, 0.2);
+}
+
+.timeline-dot--teal {
+  background: rgba(45, 212, 191, 0.14);
+  border: 2px solid rgba(45, 212, 191, 0.45);
+  box-shadow: 0 0 18px rgba(45, 212, 191, 0.18);
+}
+
+.timeline-dot--gold {
+  background: rgba(201, 168, 76, 0.16);
+  border: 2px solid rgba(201, 168, 76, 0.45);
+  box-shadow: 0 0 18px rgba(201, 168, 76, 0.2);
+}
+
+.timeline-dot--orange {
+  background: rgba(240, 140, 50, 0.16);
+  border: 2px solid rgba(240, 140, 50, 0.45);
+  box-shadow: 0 0 18px rgba(240, 140, 50, 0.2);
+}
+
+.timeline-dot--highlight {
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.3), rgba(240, 180, 60, 0.2));
+  border: 2px solid rgba(201, 168, 76, 0.7);
+  box-shadow: 0 0 28px rgba(201, 168, 76, 0.4);
+  width: 56px;
+  height: 56px;
+  font-size: 1.5rem;
+}
+
+.timeline-dot-icon {
+  line-height: 1;
+}
+
+/* ── Label (right column) ── */
+.timeline-label-col {
+  display: flex;
+  align-items: center;
+}
+
+.timeline-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(220, 235, 255, 0.9);
+  line-height: 1.4;
+  padding: 0.65rem 1.25rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.25s, border-color 0.25s;
+  width: 100%;
+}
+
+.timeline-item:hover .timeline-label {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(201, 168, 76, 0.2);
+}
+
+/* ── Highlight row (Conference Date) ── */
+.timeline-item--highlight .timeline-date {
+  color: #f0c958;
+  font-size: 0.92rem;
+}
+
+.timeline-item--highlight .timeline-label {
+  background: rgba(201, 168, 76, 0.1);
+  border-color: rgba(201, 168, 76, 0.3);
+  color: #f0d078;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+}
+
+.timeline-item--highlight:hover .timeline-label {
+  background: rgba(201, 168, 76, 0.16);
+  border-color: rgba(201, 168, 76, 0.5);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .timeline-item {
+    grid-template-columns: 48px 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.4rem 0.75rem;
+  }
+
+  .timeline-line {
+    left: 23px;
+  }
+
+  .timeline-date-col {
+    grid-column: 2;
+    grid-row: 2;
+    justify-content: flex-start;
+  }
+
+  .timeline-date {
+    font-size: 0.78rem;
+    text-align: left;
+    color: rgba(180, 200, 255, 0.55);
+  }
+
+  .timeline-dot-col {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: start;
+    padding-top: 0.35rem;
+  }
+
+  .timeline-dot {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .timeline-dot--highlight {
+    width: 44px;
+    height: 44px;
+    font-size: 1.25rem;
+  }
+
+  .timeline-label-col {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .timeline-label {
+    font-size: 0.88rem;
+    padding: 0.5rem 0.9rem;
+  }
+}
+
+/* ── Replace the old .pub-springer-logo* and .pub-index-badges rules with these ── */
+
+/* Inline Springer pill — sits inside the paragraph text */
+.pub-springer-inline {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1.5px solid #d0d4dc;
+  border-radius: 8px;
+  padding: 3px 10px;
+  margin: 0 3px;
+  vertical-align: middle;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.18);
+  position: relative;
+  top: -1px;
+}
+
+.pub-springer-inline-img {
+  height: 22px;
+  width: auto;
+  display: block;
+}
+
+/* Larger readable text for the publication note */
+.pub-card-text {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: rgba(220, 230, 255, 0.92);
+}
+
+/* Remove old rules no longer needed */
+.pub-springer-logo-wrap { display: none; }
+.pub-springer-logo { display: none; }
+.pub-index-badges { display: none; }
