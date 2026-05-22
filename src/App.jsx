@@ -583,7 +583,7 @@ const ImportantDates = () => {
     <section className="timeline-section">
       <div className="timeline-inner">
         <div className="section-tag centered reveal">Schedule</div>
-        <h2 className="section-title reveal">Important Dates</h2>
+        <h2 className="section-title reveal">Timeline</h2>
 
         <div className="timeline-track">
           {/* Vertical line */}
