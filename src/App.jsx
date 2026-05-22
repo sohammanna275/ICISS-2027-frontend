@@ -423,7 +423,7 @@ const AboutIIESTSection = () => (
 );
 
 /* ─────────────────────────────────────────────────────
-   ABOUT ICISS
+   ABOUT ICISS  (drop-in replacement)
 ───────────────────────────────────────────────────── */
 const AboutICISS = () => (
   <section id="about-iciss" className="about-iciss-section scroll-mt-24">
@@ -449,6 +449,123 @@ const AboutICISS = () => (
           <p>ICISS welcomes contributions in the form of research papers, case studies, and industry presentations, covering a wide range of topics related to intelligent systems and security. The conference encourages multidisciplinary approaches and invites submissions that explore the union and intersection of intelligent systems and security.</p>
         </div>
       </div>
+
+      {/* ── PUBLICATION SECTION ── */}
+      <div className="publication-section reveal" style={{ marginTop: '4rem' }}>
+        <div className="section-tag centered">Publication</div>
+        <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '2.5rem' }}>Publication</h2>
+
+        <div className="publication-cards-row">
+
+          {/* Card 1 — ICISS 2027 Publication */}
+          <div className="pub-card pub-card-main reveal reveal-delay-1">
+            <div className="pub-card-header">
+              <div className="pub-card-label">ICISS 2027</div>
+            </div>
+            <p className="pub-card-text">
+              All Accepted and presented papers will be published by{' '}
+              <strong>Springer</strong> in a{' '}
+              <strong>SCOPUS and Web of Science indexed book series</strong>{' '}
+              <em>(Proposal Submitted)</em>
+            </p>
+            <div className="pub-springer-logo-wrap">
+              <img
+                src="./springer_logo.png"
+                alt="Springer"
+                className="pub-springer-logo"
+                onError={e => {
+                  /* fallback SVG inline if image fails */
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'flex';
+                }}
+              />
+              {/* Inline Springer text fallback */}
+              <div className="springer-text-fallback" style={{ display: 'none' }}>
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="32" height="32" rx="4" fill="#1B3A6B"/>
+                  <path d="M8 16C8 11.6 11.6 8 16 8C18.8 8 21.3 9.4 22.8 11.5" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+                  <path d="M24 16C24 20.4 20.4 24 16 24C13.2 24 10.7 22.6 9.2 20.5" stroke="#E85D26" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+                <span style={{ color: '#1B3A6B', fontWeight: 700, fontSize: '1.2rem', marginLeft: '6px' }}>Springer</span>
+              </div>
+            </div>
+            <div className="pub-index-badges">
+              <span className="pub-badge scopus">SCOPUS Indexed</span>
+              <span className="pub-badge wos">Web of Science</span>
+            </div>
+          </div>
+
+          {/* Card 2 — Earlier Conferences */}
+          <div className="pub-card pub-card-history reveal reveal-delay-2">
+            <div className="pub-card-header">
+              <div className="pub-card-label">Earlier Conferences</div>
+            </div>
+
+            {/* ICISS 2024 */}
+            <div className="earlier-conf-item">
+              <div className="earlier-conf-badge">1st</div>
+              <div className="earlier-conf-body">
+                <div className="earlier-conf-title">
+                  1<sup>st</sup> International Conference on Intelligent Systems and Security
+                  <span className="earlier-conf-year"> (ICISS 2024)</span>
+                </div>
+                <div className="earlier-conf-links">
+                  <a href="https://iciss2024.in/" target="_blank" rel="noreferrer" className="earlier-link">🌐 Website</a>
+                  <a href="https://link.springer.com/book/10.1007/978-981-96-4273-1" target="_blank" rel="noreferrer" className="earlier-link pub-link">
+                    📗 Publication
+                  </a>
+                </div>
+                <div className="earlier-conf-book-wrap">
+                  <a href="https://link.springer.com/book/10.1007/978-981-96-4273-1" target="_blank" rel="noreferrer">
+                    <img
+                      src="./icissbook.jpeg"
+                      alt="ICISS 2024 Springer Book"
+                      className="earlier-conf-book-img"
+                      onError={e => { e.target.style.display = 'none'; }}
+                    />
+                  </a>
+                  <div className="earlier-conf-pub-note">
+                    Published in <strong>Lecture Notes in Networks and Systems</strong> by Springer
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="earlier-conf-divider" />
+
+            {/* ICISS 2026 */}
+            <div className="earlier-conf-item">
+              <div className="earlier-conf-badge second">2nd</div>
+              <div className="earlier-conf-body">
+                <div className="earlier-conf-title">
+                  2<sup>nd</sup> International Conference on Intelligent Systems and Security
+                  <span className="earlier-conf-year"> (ICISS 2026)</span>
+                </div>
+                <div className="earlier-conf-links">
+                  <a href="https://iciss2026.iiitnr.ac.in/" target="_blank" rel="noreferrer" className="earlier-link">🌐 Website</a>
+                  <span className="earlier-link pub-link-pending">📙 Under Publication</span>
+                </div>
+                <div className="earlier-conf-pub-note" style={{ marginTop: '0.5rem' }}>
+                  Publication: <em>Under Publication by</em>{' '}
+                  <strong>Lecture Notes in Networks and Systems (Springer)</strong>
+                </div>
+
+                {/* Important dates for ICISS 2026 */}
+                <div className="earlier-conf-dates">
+                  <div className="conf-date-row"><span className="conf-date-key">Paper Submission Deadline</span><span className="conf-date-val">September 30, 2026</span></div>
+                  <div className="conf-date-row"><span className="conf-date-key">Notification of Acceptance</span><span className="conf-date-val">October 20, 2026</span></div>
+                  <div className="conf-date-row"><span className="conf-date-key">Camera Ready Submission</span><span className="conf-date-val">November 3, 2026</span></div>
+                  <div className="conf-date-row"><span className="conf-date-key">Author Registration Deadline</span><span className="conf-date-val">November 15, 2026</span></div>
+                  <div className="conf-date-row highlight"><span className="conf-date-key">Conference Date</span><span className="conf-date-val">January 14–16, 2027</span></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      {/* ── END PUBLICATION SECTION ── */}
+
     </div>
   </section>
 );
@@ -755,7 +872,7 @@ const SubmitPaperPage = () => {
       <h1 className="section-title reveal">Submit Your Paper</h1>
       <div className="submit-card reveal">
         {content.map((t, i) => <p key={i}>{t}</p>)}
-        <a href="https://cmt3.research.microsoft.com/" target="_blank" rel="noreferrer"
+        <a href="https://cmt3.research.microsoft.com/ICISS2027." target="_blank" rel="noreferrer"
           className="btn-primary" style={{ marginTop: '2rem', display: 'inline-flex' }}>
           Submit Your Paper →
         </a>
