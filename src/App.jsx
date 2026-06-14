@@ -1028,10 +1028,10 @@ const RegistrationPage = () => {
               <th colSpan="2" className="reg-th-group">Foreign Participant</th>
             </tr>
             <tr>
-              <th className="reg-th-sub">On or before Nov 10, 2027</th>
-              <th className="reg-th-sub">After Nov 10, 2027</th>
-              <th className="reg-th-sub">On or before Nov 10, 2027</th>
-              <th className="reg-th-sub">After Nov 10, 2027</th>
+              <th className="reg-th-sub">On or before Nov 10, 2026</th>
+              <th className="reg-th-sub">After Nov 10, 2026</th>
+              <th className="reg-th-sub">On or before Nov 10, 2026</th>
+              <th className="reg-th-sub">After Nov 10, 2026</th>
             </tr>
           </thead>
           <tbody>
