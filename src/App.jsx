@@ -19,7 +19,7 @@ const ParticleCanvas = () => {
     const BLUE = [29, 111, 232];
 
     const particles = Array.from({ length: 80 }, () => ({
-      x: Math.random() * W,
+      x: Math.random() * W, 
       y: Math.random() * H,
       r: Math.random() * 1.5 + 0.3,
       vx: (Math.random() - 0.5) * 0.15,
@@ -652,7 +652,14 @@ const SpeakersPage = () => {
     {
       name: 'Professor Ajoy Kumar Ray',
       title: 'Indian Institute of Technology Kharagpur, India',
+      description: "",
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Ajoy_Kumar_Ray_-_Kolkata_2015-11-17_5154.JPG/500px-Ajoy_Kumar_Ray_-_Kolkata_2015-11-17_5154.JPG'
+    },
+    {
+      name: 'Dr. Pranab Kumar Das Gupta',
+      title: 'Scientist G, DRDO, India',
+      description: 'Dr. Pranab Kumar Das Gupta is a Computer Scientist, management professional, author, and AI educator with 36+ years of experience. He holds a Ph.D. in Computer Science, with executive training from IIM Ahmedabad, IIM Calcutta, and IIM Lucknow, and has authored 20 books. His work focuses on making AI practical and accessible through research, writing, and training in AI, digital transformation, and AI-enabled management.',
+      image: './pkd.jpeg'
     }
   ];
   return (
@@ -666,6 +673,7 @@ const SpeakersPage = () => {
             <div className="speaker-info">
               <h3>{s.name}</h3>
               <p>{s.title}</p>
+              <p>{s.description}</p>
             </div>
           </div>
         ))}
