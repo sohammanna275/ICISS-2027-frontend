@@ -425,7 +425,8 @@ sup { font-size: 0.6em; vertical-align: super; }
 .speaker-card:hover .speaker-img-wrap img { transform: scale(1.1); }
 .speaker-info { padding: 1.75rem; position: relative; z-index: 2; }
 .speaker-info h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
-.speaker-info p { color: var(--gold-bright); font-size: 0.875rem; font-style: italic; }
+.speaker-title { color: var(--gold-bright); font-size: 0.875rem; font-style: italic; margin-bottom: 0.9rem; }
+.speaker-desc { color: var(--white-60); font-size: 0.85rem; line-height: 1.8; font-style: normal; }
 
 /* ── COMMITTEE ── */
 .committee-sections { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 3.5rem; position: relative; }
