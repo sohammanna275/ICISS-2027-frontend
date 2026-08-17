@@ -849,8 +849,8 @@ const AuthorGuidelines = () => {
         ))}
       </div>
       <div className="guidelines-downloads reveal">
-        <a href="https://iciss2024.in/ICISS_LNNS_Word_Template.docx" className="download-btn">📄 Word Template (LNNS)</a>
-        <a href="https://iciss2024.in/ICISS_LNNS_latex_Template.zip" className="download-btn">📦 LaTeX Template (LNNS)</a>
+        <a href="./ICMC_LNNS_Word_Template.docx" className="download-btn">📄 Word Template (LNNS)</a>
+        <a href="https://event.iitg.ac.in/icmc2027/Template/ICMC_LNNS_LaTex_Template-1.zip" className="download-btn">📦 LaTeX Template (LNNS)</a>
       </div>
     </section>
   );
