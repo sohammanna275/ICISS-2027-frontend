@@ -554,13 +554,13 @@ const ImportantDates = () => {
     },
     {
       label: 'Notification of Acceptance',
-      date: 'October 20, 2026',
+      date: 'October 30, 2026',
       icon: '📬',
       color: 'teal',
     },
     {
       label: 'Camera Ready Submission',
-      date: 'November 3, 2026',
+      date: 'November 15, 2026',
       icon: '📄',
       color: 'gold',
     },
