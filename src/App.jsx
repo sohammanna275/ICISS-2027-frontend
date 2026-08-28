@@ -356,7 +356,7 @@ const ConferenceDetails = () => (
         <span className="conf-date-icon">📄</span>
         <div>
           <div className="conf-date-label">Paper Submission Deadline</div>
-          <div className="conf-date-value">TBA</div>
+          <div className="conf-date-value">30 September 2026</div>
         </div>
       </div>
     </div>
