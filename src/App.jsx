@@ -666,6 +666,12 @@ const SpeakersPage = () => {
       title: 'Department of Electro-Optical Engineering, National Formosa University (NFU), Taiwan',
       description: "Prof. Mao-Hsiu Hsu (徐茂修) is an Associate Professor in the Department of Electro-Optical Engineering at National Formosa University (NFU), Taiwan, where he leads the AI SoC System Laboratory (AISCLab). He also serves in affiliated roles with the Taiwan Academic Cybersecurity Center (TACC) and NFU's Computer Center. He brings extensive joint experience spanning the semiconductor/IC design industry and academia, including leadership and technical roles at FocalTech Electronics (Director/Senior Technical Manager), Foxconn, Primax, Chung-Hwa Telecom, and Motorola. His core research bridges artificial intelligence with hardware and cybersecurity applications, spanning deep learning and image signal processing (DeepFake GAN/Diffusion detection, biometric security, image inpainting), AI hardware and IC design (TinyML MCU design, SoC design, edge AI acceleration, high-speed SerDes/RF circuitry), and cybersecurity and edge computing (decentralized frameworks, DDoS detection, federated learning, blockchain security). He has published over 100 technical papers, holds numerous patents, and contributes actively to top-tier IEEE journals and international computer vision and security conferences.",
       image: './image.png'
+    },
+    {
+      name: 'Dr. Pradeep Kumar Dabla',
+      title: 'Director Professor & Head Department of Biochemistry G.B. Pant Institute of Postgraduate Medical Education & Research (GIPMER), India',
+      description: "Prof. (Dr.) Pradeep Kumar Dabla is a laboratory physician and academician with over 25 years of experience in laboratory quality management, medical devices, molecular biology, clinical research, and artificial intelligence. He actively contributes to national regulatory and quality bodies, such as National Medical Commission (NMC) and other NABL QCI as Lead & Technical Assessor (ISO 15189:2022, ISO 17043:2023), National Faculty, and expert committee.",  
+      image: './prdab.jpg'
     }
   ];
   return (
