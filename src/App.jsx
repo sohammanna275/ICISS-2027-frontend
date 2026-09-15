@@ -401,7 +401,7 @@ const AboutIIESTSection = () => (
   <section id="about-iiest" className="about-section scroll-mt-24">
     <div className="about-inner">
       <div className="about-img-wrap reveal">
-        <img src="https://iciss2024.in/static/media/clg1.2c7df5d561629cc3f013.png" alt="IIEST Shibpur Campus" />
+        <img src="./iiestarial.png" alt="IIEST Shibpur Campus" />
         <div className="about-img-badge">Est. 1856</div>
       </div>
       <div className="about-text reveal reveal-delay-2">
@@ -464,7 +464,7 @@ const AboutICISS = () => (
               <div className="pub-card-label">ICISS 2027</div>
             </div>
             <p className="pub-card-text">
-              Note: All Accepted and presented papers will be published by{' '}
+              Note: The Proceedings of ICISS 2027 will be published by the Springer book series "Lecture Notes in Networks and Systems"{' '}
               <span className="pub-springer-inline">
                 <img src="data:image/png;base64,PLACEHOLDER" alt="Springer" className="pub-springer-inline-img" />
               </span>{' '}
