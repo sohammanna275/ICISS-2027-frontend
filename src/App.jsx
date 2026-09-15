@@ -19,7 +19,7 @@ const ParticleCanvas = () => {
     const BLUE = [29, 111, 232];
 
     const particles = Array.from({ length: 80 }, () => ({
-      x: Math.random() * W, 
+      x: Math.random() * W,
       y: Math.random() * H,
       r: Math.random() * 1.5 + 0.3,
       vx: (Math.random() - 0.5) * 0.15,
@@ -53,7 +53,7 @@ const ParticleCanvas = () => {
     return () => { cancelAnimationFrame(animId); window.removeEventListener('resize', onResize); };
   }, []);
 
-  return <canvas ref={canvasRef} id="particle-canvas" style={{ position:'fixed', inset:0, pointerEvents:'none', zIndex:0, opacity:0.5 }} />;
+  return <canvas ref={canvasRef} id="particle-canvas" style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0, opacity: 0.5 }} />;
 };
 
 /* ─────────────────────────────────────────────────────
@@ -116,10 +116,10 @@ const Countdown = () => {
     const diff = target - Date.now();
     if (diff <= 0) return { days: 0, hours: 0, mins: 0, secs: 0 };
     return {
-      days:  Math.floor(diff / 86400000),
+      days: Math.floor(diff / 86400000),
       hours: Math.floor((diff % 86400000) / 3600000),
-      mins:  Math.floor((diff % 3600000) / 60000),
-      secs:  Math.floor((diff % 60000) / 1000),
+      mins: Math.floor((diff % 3600000) / 60000),
+      secs: Math.floor((diff % 60000) / 1000),
     };
   };
   const [t, setT] = useState(calc);
@@ -458,7 +458,7 @@ const AboutICISS = () => (
         <div className="publication-cards-row">
 
           {/* Card 1 — ICISS 2027 Publication */}
-          
+
           <div className="pub-card pub-card-main reveal reveal-delay-1">
             <div className="pub-card-header">
               <div className="pub-card-label">ICISS 2027</div>
@@ -527,7 +527,7 @@ const AboutICISS = () => (
                   <strong>Lecture Notes in Networks and Systems (Springer)</strong>
                 </div>
 
-                
+
               </div>
             </div>
 
@@ -668,10 +668,10 @@ const SpeakersPage = () => {
       image: './image.png'
     },
     {
-      name: 'Dr. Pradeep Kumar Dabla',
-      title: 'Director Professor & Head Department of Biochemistry G.B. Pant Institute of Postgraduate Medical Education & Research (GIPMER), India',
-      description: "Prof. (Dr.) Pradeep Kumar Dabla is a laboratory physician and academician with over 25 years of experience in laboratory quality management, medical devices, molecular biology, clinical research, and artificial intelligence. He actively contributes to national regulatory and quality bodies, such as National Medical Commission (NMC) and other NABL QCI as Lead & Technical Assessor (ISO 15189:2022, ISO 17043:2023), National Faculty, and expert committee.",  
-      image: './prdab.jpg'
+      name: 'Dr. Vitawat Sittakul',
+      title: 'Associate Professor, King Mongkut’s University of Technology North Bangkok (KMUTNB), Thailand',
+      description: "Dr. Vitawat Sittakul is an Associate Professor in the Department of Electrical and Electronics Engineering Technology and the Head of the 5G and Beyond Wireless Innovation Center at King Mongkut’s University of Technology North Bangkok (KMUTNB), Thailand.He received his B.Eng. in Telecommunication from Chulalongkorn University (2000), an M.Sc. with distinction in Optical and Communication Systems from Northumbria University (2003), and a Ph.D. from the Department of Electrical and Electronic Engineering at the University of Bristol (2006) as a Thai Government scholar.With over 15 years of combined industrial, governmental, and academic experience, Dr. Sittakul has served as a Measurement Engineer at Fabinet, a Senior RF Engineer at AIS, an RF Metrologist at the National Institute of Metrology (Thailand), and a technical consultant for telecommunication firms such as FPRI and TelcoEconomics. He has delivered more than 6 international keynote addresses and has authored 14 journal articles and 37 conference proceedings. His primary research interests include RF devices, antenna measurement, optical communication, wireless communication, RF-over-fiber, active integrated antennas, IoT smart plugs, wireless sensor networks, and fuzzy logic-controlled solar tracking systems.",
+      image: './thai.jpeg'
     }
   ];
   return (
@@ -701,104 +701,111 @@ const CommitteePage = () => {
   const data = [
     { category: 'Chief Patron', members: [{ name: 'Dr Tejaswini Ananth Kumar', title: 'Chairperson BOG, IIEST, Shibpur, India' }] },
     { category: 'Patron', members: [{ name: 'Dr. V M S R Murthy', title: 'Director, IIEST, Shibpur, India' }] },
-    { category: 'General Chairs', members: [{ name: 'Santi Prasad Maity', title: 'IIEST, Shibpur, India' }, { name: 'Arindam Biswas', title: 'IIEST, Shibpur, India' }] },
-    { category: 'General Co-Chairs', members: [{ name: 'Sourav Kaity', title: 'Defence Research and Development Organisation (DRDO)'}] },
-    { category: 'Organizing Chair', members: [{ name: 'Shyamalendu Kandar', title: 'IIEST, Shibpur, India' }] },
-    { category: 'Organizing Co-Chairs', members: [{ name: 'Binanda Sengupta', title: 'IIEST, Shibpur, India' }] },
-    { category: 'Program Chairs', members: [{name: 'Indrajit Ray', title: 'Colorado State University, USA'}, { name: 'Debasis Giri', title: 'MAKAUT, India' }, { name: 'Shyamalendu Kandar', title: 'IIEST, Shibpur, India' }, { name: 'Xiao-Zhi Gao', title: 'University of Eastern Finland, Finland' }] },
-    {category: 'Publication Chairs', members:[{ name: 'Ruhul Amin', title: 'IIIT Naya Raipur, India'}, { name: 'Sangram Ray', title: 'NIT Sikkim, India'}]},
-    { category: 'International Advisory Committee', members: [
-      { name: 'Rajkumar Buyya', title: 'University of Melbourne, Australia' },
-      { name: 'Vincenzo Puri', title: 'University of Milan, Italy' },
-      { name: 'Youngho Park', title: 'Kyungpook National University, Daegu, South Korea' },
-      { name: 'Mohammad S. Obaidat', title: 'University of Jordan, Amman, Jordan' },
-      { name: 'Sukumar Nandi', title: 'IIT Guwahati, India' },
-      { name: 'Muhammad Khurram Khan', title: 'King Saud University, Saudi Arabia' },
-      { name: 'D. A. Khan', title: 'NIT Jamshedpur, India' },
-      { name: 'Kim-Kwang Raymond Choo', title: 'University of Texas, USA' },
-      { name: 'Debiao He', title: 'Wuhan University, China' },
-      { name: 'Ashok Kumar Das', title: 'IIIT Hyderabad, India' },
-      { name: 'Chiranjeev Kumar', title: 'IIT(ISM) Dhanbad, India' },
-    ] },
+    { category: 'General Chairs', members: [{ name: 'Santi Prasad Maity', title: 'IIEST, Shibpur, India' }, { name: 'Arindam Biswas', title: 'IIEST, Shibpur, India' }, { name: 'Sourav Kaity', title: 'Defence Research and Development Organisation (DRDO)' }] },
+    { category: 'Organizing Chair', members: [{ name: 'Shyamalendu Kandar', title: 'IIEST, Shibpur, India' }, { name: 'Binanda Sengupta', title: 'IIEST, Shibpur, India' }] },
+    { category: 'Program Chairs', members: [{ name: 'Indrajit Ray', title: 'Colorado State University, USA' }, { name: 'Debasis Giri', title: 'MAKAUT, India' }, { name: 'Shyamalendu Kandar', title: 'IIEST, Shibpur, India' }, { name: 'Xiao-Zhi Gao', title: 'University of Eastern Finland, Finland' }] },
+    { category: 'Publication Chairs', members: [{ name: 'Ruhul Amin', title: 'IIIT Naya Raipur, India' }, { name: 'Sangram Ray', title: 'NIT Sikkim, India' }] },
+    {
+      category: 'International Advisory Committee', members: [
+        { name: 'Rajkumar Buyya', title: 'University of Melbourne, Australia' },
+        { name: 'Vincenzo Puri', title: 'University of Milan, Italy' },
+        { name: 'Youngho Park', title: 'Kyungpook National University, Daegu, South Korea' },
+        { name: 'Hafizur Rahaman', title: 'IIEST, Shibpur, India' },
+        { name: 'Mohammad S. Obaidat', title: 'University of Jordan, Amman, Jordan' },
+        { name: 'Sukumar Nandi', title: 'IIT Guwahati, India' },
+        { name: 'Muhammad Khurram Khan', title: 'King Saud University, Saudi Arabia' },
+        { name: 'D. A. Khan', title: 'NIT Jamshedpur, India' },
+        { name: 'Kim-Kwang Raymond Choo', title: 'University of Texas, USA' },
+        { name: 'Debiao He', title: 'Wuhan University, China' },
+        { name: 'Ashok Kumar Das', title: 'IIIT Hyderabad, India' },
+        { name: 'Chiranjeev Kumar', title: 'IIT(ISM) Dhanbad, India' },
+      ]
+    },
     { category: 'Website Committee', members: [{ name: 'Indrajit Banerjee', title: 'IIEST, Shibpur, India' }, { name: 'Soham Manna', title: 'IIEST, Shibpur, India' }, { name: 'Subarno Mandal', title: 'IIEST, Shibpur, India' }] },
-    { category: 'Organizing Committee', members: [
-      { name: 'Hafizur Rahaman', title: 'IIEST, Shibpur, India' },
-      { name: ' Sukanta Das', title: 'IIEST, Shibpur, India' },
-      { name: ' Indrajit Banerjee', title: 'IIEST, Shibpur, India' },
-      { name: 'Prasun Ghosal', title: 'IIEST, Shibpur, India' },
-      { name: ' Tuhina Samanta', title: 'IIEST, Shibpur, India' },
-      { name: ' Surajit Kumar Roy', title: 'IIEST, Shibpur, India' },
-      { name: ' Ruchira Naskar', title: 'IIEST, Shibpur, India' },
-      { name: ' Binanda Sengupta', title: 'IIEST, Shibpur, India' },
-      { name: ' Basabdatta Palit', title: 'IIEST, Shibpur, India' },
-      { name: 'Dipanjyoti Paul', title: 'IIEST, Shibpur, India' },
-      { name: 'Kamalika Bhattacharjee' , title: 'IIEST, Shibpur, India' },
-      { name: ' Chandan Giri', title: 'IIEST, Shibpur, India' },
-      { name: ' Arindam Biswas', title: 'IIEST, Shibpur, India' },
-      { name: ' Santi Prasad Maity', title: 'IIEST, Shibpur, India' },
-      { name: ' Surajit Ghosh', title: 'IIEST, Shibpur, India' },
-      { name: ' Nirnay Ghosh', title: 'IIEST, Shibpur, India' },
-      { name: ' Malay Kule', title: 'IIEST, Shibpur, India' },
-      { name: ' Samit Biswas', title: 'IIEST, Shibpur, India' },
-    ]},
-    { category: 'Finance Committee', members: [
-      { name: ' Surajit Kumar Roy', title: 'IIEST, Shibpur, India' },
-    ] },
+    {
+      category: 'Organizing Committee', members: [
+        { name: 'Hafizur Rahaman', title: 'IIEST, Shibpur, India' },
+        { name: ' Sukanta Das', title: 'IIEST, Shibpur, India' },
+        { name: ' Indrajit Banerjee', title: 'IIEST, Shibpur, India' },
+        { name: 'Prasun Ghosal', title: 'IIEST, Shibpur, India' },
+        { name: ' Tuhina Samanta', title: 'IIEST, Shibpur, India' },
+        { name: ' Surajit Kumar Roy', title: 'IIEST, Shibpur, India' },
+        { name: ' Ruchira Naskar', title: 'IIEST, Shibpur, India' },
+        { name: ' Binanda Sengupta', title: 'IIEST, Shibpur, India' },
+        { name: ' Basabdatta Palit', title: 'IIEST, Shibpur, India' },
+        { name: 'Dipanjyoti Paul', title: 'IIEST, Shibpur, India' },
+        { name: 'Kamalika Bhattacharjee', title: 'IIEST, Shibpur, India' },
+        { name: ' Chandan Giri', title: 'IIEST, Shibpur, India' },
+        { name: ' Arindam Biswas', title: 'IIEST, Shibpur, India' },
+        { name: ' Santi Prasad Maity', title: 'IIEST, Shibpur, India' },
+        { name: ' Surajit Ghosh', title: 'IIEST, Shibpur, India' },
+        { name: ' Nirnay Ghosh', title: 'IIEST, Shibpur, India' },
+        { name: ' Malay Kule', title: 'IIEST, Shibpur, India' },
+        { name: ' Samit Biswas', title: 'IIEST, Shibpur, India' },
+      ]
+    },
+    {
+      category: 'Finance Committee', members: [
+        { name: ' Surajit Kumar Roy', title: 'IIEST, Shibpur, India' },
+      ]
+    },
     { category: 'Event Management Committee', members: [] },
-    { category: 'Technical Program Committee', members: [
-  { name: 'Akber Ali Khan', title: 'IIMT College of Engineering, Greater Noida, India' },
-  { name: 'Alawi A. Al-saggaf', title: 'King Fahd University of Petroleum and Minerals, Saudi Arabia' },
-  { name: 'Aloizio Pereira da Silva', title: 'Commonwealth Cyber Initiative Virginia Tech, USA' },
-  { name: 'Anil Kumar Singh', title: 'Motilal Nehru National Institute of Technology Allahabad, Prayagraj, India' },
-  { name: 'Annappa B', title: 'NIT Karnataka, Surathkal, India' },
-  { name: 'Arijit Karati', title: 'National Sun Yat-sen University, Taiwan' },
-  { name: 'Arindam Biswas', title: 'Kazi Nazrul University, India' },
-  { name: 'Arup Kumar Pal', title: 'IIT Dhanbad, India' },
-  { name: 'Badal Soni', title: 'NIT Silchar, India' },
-  { name: 'Bhupendra Singh', title: 'IIIT, Pune, India' },
-  { name: 'Biswajit R. Bhowmik', title: 'NIT Surathkal, Karnataka, India' },
-  { name: 'Biswapati Jana', title: 'Vidyasagar University, India' },
-  { name: 'Chowdhury Mofizur Rahman', title: 'State University of Bangladesh, Bangladesh' },
-  { name: 'Debashis De', title: 'MAKAUT, India' },
-  { name: 'Debdatta Kandar', title: 'North Eastern Hill University, India' },
-  { name: 'Deepak Ranjan Nayak', title: 'MNIT Jaipur, India' },
-  { name: 'Devesh C Jinwala', title: 'S V National Institute of Technology, Surat, India' },
-  { name: 'Dharavath Ramesh', title: 'IIT Dhanbad, India' },
-  { name: 'Dhiren Patel', title: 'NIT Surat, India' },
-  { name: 'Dushyant Kumar Singh', title: 'MNIT Allahabad, India' },
-  { name: 'Goutham Reddy', title: 'University of Illinois, Springfield, USA' },
-  { name: 'Jaspal Kaur Saini', title: 'IIIT Una, India' },
-  { name: 'K. Himabindu', title: 'NIT Andhra Pradesh, India' },
-  { name: 'Kanu Goel', title: 'Punjab Engineering College, India' },
-  { name: 'Koushlendra Kumar Singh', title: 'NIT Jamshedpur, India' },
-  { name: 'Krishan Berwal', title: 'NIT Kurukshetra, India' },
-  { name: 'Mahendra Pratap Yadav', title: 'IIIT Pune, India' },
-  { name: 'Mithlesh Arya', title: 'Swami Keshvanand Institute of Technology, Jaipur, India' },
-  { name: 'Mueen Uddin', title: 'University of Doha for Science & Technology, Qatar' },
-  { name: 'Petra Wiederhold', title: 'Av. Instituto Politécnico Nacional, Mexico' },
-  { name: 'Pilli Emmanuel Shubhakar', title: 'Malaviya National Institute of Technology, Jaipur, India' },
-  { name: 'Prashant Kumar', title: 'NIT Jalandhar, India' },
-  { name: 'Pravan Kumar C', title: 'IIIT Dharwad, India' },
-  { name: 'Prema Kumar Veerapaneni', title: 'JP Morgan Chase' },
-  { name: 'Rajendra Prasath', title: 'IIIT Chittoor, India' },
-  { name: 'Rituraj Soni', title: 'Engineering College Bikaner, India' },
-  { name: 'Rolando Herrero', title: 'Northeastern University, USA' },
-  { name: 'Sanjit Setua', title: 'Calcutta University, India' },
-  { name: 'Satnam Kaur', title: 'Punjab Engineering College, India' },
-  { name: 'Satyaki Roy', title: 'University of Alabama in Huntsville, USA' },
-  { name: 'Saurav Nanda', title: 'Synopsys, Mountain View, CA, USA' },
-  { name: 'Shashi Gurung', title: 'Govt. Hydro Engineering College, India' },
-  { name: 'Shefali Arora Chouhan', title: 'NIT Jalandhar, India' },
-  { name: 'Sonam Maurya', title: 'IIT Pune, India' },
-  { name: 'Soumya Sen', title: 'Calcutta University, India' },
-  { name: 'Sujit Das', title: 'National Institute of Technology Warangal, India' },
-  { name: 'Tandra Pal', title: 'NIT Durgapur, India' },
-  { name: 'Tso Raylin', title: 'National Chengchi University, Taiwan' },
-  { name: 'Vijay Kumar Chahar', title: 'NIT Jalandhar, India' },
-  { name: 'Vijayan K. Asari', title: 'University of Dayton, USA' },
-  { name: 'Vincenzo Piuri', title: 'University of Milan, Italy' },
-  { name: 'Xiao-Zhi Gao', title: 'University of Eastern Finland, Finland' },
-] },
+    {
+      category: 'Technical Program Committee', members: [
+        { name: 'Akber Ali Khan', title: 'IIMT College of Engineering, Greater Noida, India' },
+        { name: 'Alawi A. Al-saggaf', title: 'King Fahd University of Petroleum and Minerals, Saudi Arabia' },
+        { name: 'Aloizio Pereira da Silva', title: 'Commonwealth Cyber Initiative Virginia Tech, USA' },
+        { name: 'Anil Kumar Singh', title: 'Motilal Nehru National Institute of Technology Allahabad, Prayagraj, India' },
+        { name: 'Annappa B', title: 'NIT Karnataka, Surathkal, India' },
+        { name: 'Arijit Karati', title: 'National Sun Yat-sen University, Taiwan' },
+        { name: 'Arindam Biswas', title: 'Kazi Nazrul University, India' },
+        { name: 'Arup Kumar Pal', title: 'IIT Dhanbad, India' },
+        { name: 'Badal Soni', title: 'NIT Silchar, India' },
+        { name: 'Bhupendra Singh', title: 'IIIT, Pune, India' },
+        { name: 'Biswajit R. Bhowmik', title: 'NIT Surathkal, Karnataka, India' },
+        { name: 'Biswapati Jana', title: 'Vidyasagar University, India' },
+        { name: 'Chowdhury Mofizur Rahman', title: 'State University of Bangladesh, Bangladesh' },
+        { name: 'Debashis De', title: 'MAKAUT, India' },
+        { name: 'Debdatta Kandar', title: 'North Eastern Hill University, India' },
+        { name: 'Deepak Ranjan Nayak', title: 'MNIT Jaipur, India' },
+        { name: 'Devesh C Jinwala', title: 'S V National Institute of Technology, Surat, India' },
+        { name: 'Dharavath Ramesh', title: 'IIT Dhanbad, India' },
+        { name: 'Dhiren Patel', title: 'NIT Surat, India' },
+        { name: 'Dushyant Kumar Singh', title: 'MNIT Allahabad, India' },
+        { name: 'Goutham Reddy', title: 'University of Illinois, Springfield, USA' },
+        { name: 'Jaspal Kaur Saini', title: 'IIIT Una, India' },
+        { name: 'K. Himabindu', title: 'NIT Andhra Pradesh, India' },
+        { name: 'Kanu Goel', title: 'Punjab Engineering College, India' },
+        { name: 'Koushlendra Kumar Singh', title: 'NIT Jamshedpur, India' },
+        { name: 'Krishan Berwal', title: 'NIT Kurukshetra, India' },
+        { name: 'Mahendra Pratap Yadav', title: 'IIIT Pune, India' },
+        { name: 'Mithlesh Arya', title: 'Swami Keshvanand Institute of Technology, Jaipur, India' },
+        { name: 'Mueen Uddin', title: 'University of Doha for Science & Technology, Qatar' },
+        { name: 'Petra Wiederhold', title: 'Av. Instituto Politécnico Nacional, Mexico' },
+        { name: 'Pilli Emmanuel Shubhakar', title: 'Malaviya National Institute of Technology, Jaipur, India' },
+        { name: 'Prashant Kumar', title: 'NIT Jalandhar, India' },
+        { name: 'Pravan Kumar C', title: 'IIIT Dharwad, India' },
+        { name: 'Prema Kumar Veerapaneni', title: 'JP Morgan Chase' },
+        { name: 'Rajendra Prasath', title: 'IIIT Chittoor, India' },
+        { name: 'Rituraj Soni', title: 'Engineering College Bikaner, India' },
+        { name: 'Rolando Herrero', title: 'Northeastern University, USA' },
+        { name: 'Sanjit Setua', title: 'Calcutta University, India' },
+        { name: 'Satnam Kaur', title: 'Punjab Engineering College, India' },
+        { name: 'Satyaki Roy', title: 'University of Alabama in Huntsville, USA' },
+        { name: 'Saurav Nanda', title: 'Synopsys, Mountain View, CA, USA' },
+        { name: 'Shashi Gurung', title: 'Govt. Hydro Engineering College, India' },
+        { name: 'Shefali Arora Chouhan', title: 'NIT Jalandhar, India' },
+        { name: 'Sonam Maurya', title: 'IIT Pune, India' },
+        { name: 'Soumya Sen', title: 'Calcutta University, India' },
+        { name: 'Sujit Das', title: 'National Institute of Technology Warangal, India' },
+        { name: 'Tandra Pal', title: 'NIT Durgapur, India' },
+        { name: 'Tso Raylin', title: 'National Chengchi University, Taiwan' },
+        { name: 'Vijay Kumar Chahar', title: 'NIT Jalandhar, India' },
+        { name: 'Vijayan K. Asari', title: 'University of Dayton, USA' },
+        { name: 'Vincenzo Piuri', title: 'University of Milan, Italy' },
+        { name: 'Xiao-Zhi Gao', title: 'University of Eastern Finland, Finland' },
+      ]
+    },
   ];
 
   const nonEmpty = data.filter(g => g.members.length > 0);
@@ -1006,21 +1013,21 @@ const SubmitPaperPage = () => {
 
   return (
     <>
-    <section className="page-section">
-      <div className="section-tag centered reveal">Paper Submission</div>
-      <h1 className="section-title reveal">Submit Your Paper</h1>
-      <div className="submit-card reveal">
-        {content.map((t, i) => <p key={i}>{t}</p>)}
-        <a href="https://cmt3.research.microsoft.com/ICISS2027." target="_blank" rel="noreferrer"
-          className="btn-primary" style={{ marginTop: '2rem', display: 'inline-flex' }}>
-          Submit Your Paper →
-        </a>
-        <p style={{ marginTop: '2rem', fontSize: '0.9rem', color: '#555' }}>
-          The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
-        </p>
-      </div>
-    </section>
-    <ImportantDates />
+      <section className="page-section">
+        <div className="section-tag centered reveal">Paper Submission</div>
+        <h1 className="section-title reveal">Submit Your Paper</h1>
+        <div className="submit-card reveal">
+          {content.map((t, i) => <p key={i}>{t}</p>)}
+          <a href="https://cmt3.research.microsoft.com/ICISS2027." target="_blank" rel="noreferrer"
+            className="btn-primary" style={{ marginTop: '2rem', display: 'inline-flex' }}>
+            Submit Your Paper →
+          </a>
+          <p style={{ marginTop: '2rem', fontSize: '0.9rem', color: '#555' }}>
+            The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
+          </p>
+        </div>
+      </section>
+      <ImportantDates />
     </>
   );
 };
@@ -1060,10 +1067,10 @@ const RegistrationPage = () => {
               <th colSpan="2" className="reg-th-group">Foreign Participant</th>
             </tr>
             <tr>
-              <th className="reg-th-sub">On or before Nov 10, 2026</th>
-              <th className="reg-th-sub">After Nov 10, 2026</th>
-              <th className="reg-th-sub">On or before Nov 10, 2026</th>
-              <th className="reg-th-sub">After Nov 10, 2026</th>
+              <th className="reg-th-sub">On or before Nov 10, 2026*</th>
+              <th className="reg-th-sub">After Nov 10, 2026*</th>
+              <th className="reg-th-sub">On or before Nov 10, 2026*</th>
+              <th className="reg-th-sub">After Nov 10, 2026*</th>
             </tr>
           </thead>
           <tbody>
@@ -1078,6 +1085,9 @@ const RegistrationPage = () => {
             ))}
           </tbody>
         </table>
+        <p className="reg-gst-note" style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: '#d92d2d', fontWeight: 500 }}>
+          * 18% GST will be added extra to the above fees.
+        </p>
       </div>
 
       <div className="reg-notice reveal">
@@ -1228,7 +1238,7 @@ const Footer = () => (
             { label: 'Registration', to: '/registration' },
           ].map(({ label, to, href }) =>
             href ? <a key={label} href={href} className="footer-link">{label}</a>
-                 : <Link key={label} to={to} className="footer-link">{label}</Link>
+              : <Link key={label} to={to} className="footer-link">{label}</Link>
           )}
         </div>
 
@@ -1242,7 +1252,7 @@ const Footer = () => (
             { label: 'Contact Us', to: '/contact' },
           ].map(({ label, to, href }) =>
             href ? <a key={label} href={href} className="footer-link">{label}</a>
-                 : <Link key={label} to={to} className="footer-link">{label}</Link>
+              : <Link key={label} to={to} className="footer-link">{label}</Link>
           )}
         </div>
 
@@ -1281,23 +1291,23 @@ export default function App() {
                   <AddressSection />
                   <AboutIIESTSection />
                   <AboutICISS />
-                  <ImportantDates /> 
+                  <ImportantDates />
                 </>
               } />
-              <Route path="/committee"           element={<CommitteePage />} />
-              <Route path="/contact"             element={<ContactPage />} />
-              <Route path="/speakers"            element={<SpeakersPage />} />
-              <Route path="/tracks"              element={<ContributionTracksPage />} />
-              <Route path="/guidelines"          element={<AuthorGuidelines />} />
-              <Route path="/submit-paper"        element={<SubmitPaperPage />} />
-              <Route path="/registration"        element={<RegistrationPage />} />
-              <Route path="/venue"               element={<VenuePage />} />
+              <Route path="/committee" element={<CommitteePage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/speakers" element={<SpeakersPage />} />
+              <Route path="/tracks" element={<ContributionTracksPage />} />
+              <Route path="/guidelines" element={<AuthorGuidelines />} />
+              <Route path="/submit-paper" element={<SubmitPaperPage />} />
+              <Route path="/registration" element={<RegistrationPage />} />
+              <Route path="/venue" element={<VenuePage />} />
               <Route path="/tourist-destinations" element={<TouristDestinationsPage />} />
             </Routes>
           </main>
           <Footer />
         </div>
-          <RouteHandler />
+        <RouteHandler />
       </ScrollRevealWrapper>
     </Router>
   );
