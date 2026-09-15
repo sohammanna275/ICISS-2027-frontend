@@ -464,7 +464,7 @@ const AboutICISS = () => (
               <div className="pub-card-label">ICISS 2027</div>
             </div>
             <p className="pub-card-text">
-              Note: The Proceedings of ICISS 2027 will be published by the Springer book series "Lecture Notes in Networks and Systems"{' '}
+              The Proceedings of ICISS 2027 will be published by  the Springer book series “Lecture Notes in Networks and Systems” (https://www.springer.com/series/15179) (Confirm){' '}
               <span className="pub-springer-inline">
                 <img src="data:image/png;base64,PLACEHOLDER" alt="Springer" className="pub-springer-inline-img" />
               </span>{' '}
