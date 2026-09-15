@@ -668,6 +668,12 @@ const SpeakersPage = () => {
       image: './image.png'
     },
     {
+      name: 'Dr. Pradeep Kumar Dabla',
+      title: 'Director Professor & Head, Department of Biochemistry, G.B. Pant Institute of Postgraduate Medical Education & Research (GIPMER), India',
+      description:'Prof. (Dr.) Pradeep Kumar Dabla is a laboratory physician and academician with over 25 years of experience in laboratory quality management, medical devices, molecular biology, clinical research, and artificial intelligence. He actively contributes to national regulatory and quality bodies, such as National Medical Commission (NMC) and other NABL QCI as Lead & Technical Assessor (ISO 15189:2022, ISO 17043:2023), National Faculty, and expert committee.',
+      image:'./prdab.jpg'
+    },
+    {
       name: 'Dr. Vitawat Sittakul',
       title: 'Associate Professor, King Mongkut’s University of Technology North Bangkok (KMUTNB), Thailand',
       description: "Dr. Vitawat Sittakul is an Associate Professor in the Department of Electrical and Electronics Engineering Technology and the Head of the 5G and Beyond Wireless Innovation Center at King Mongkut’s University of Technology North Bangkok (KMUTNB), Thailand.He received his B.Eng. in Telecommunication from Chulalongkorn University (2000), an M.Sc. with distinction in Optical and Communication Systems from Northumbria University (2003), and a Ph.D. from the Department of Electrical and Electronic Engineering at the University of Bristol (2006) as a Thai Government scholar.With over 15 years of combined industrial, governmental, and academic experience, Dr. Sittakul has served as a Measurement Engineer at Fabinet, a Senior RF Engineer at AIS, an RF Metrologist at the National Institute of Metrology (Thailand), and a technical consultant for telecommunication firms such as FPRI and TelcoEconomics. He has delivered more than 6 international keynote addresses and has authored 14 journal articles and 37 conference proceedings. His primary research interests include RF devices, antenna measurement, optical communication, wireless communication, RF-over-fiber, active integrated antennas, IoT smart plugs, wireless sensor networks, and fuzzy logic-controlled solar tracking systems.",
