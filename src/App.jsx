@@ -468,7 +468,6 @@ const AboutICISS = () => (
               <span className="pub-springer-inline">
                 <img src="data:image/png;base64,PLACEHOLDER" alt="Springer" className="pub-springer-inline-img" />
               </span>{' '}
-              in a SCOPUS and Web of Science indexed book series (Proposal Submitted).
             </p>
           </div>
 
