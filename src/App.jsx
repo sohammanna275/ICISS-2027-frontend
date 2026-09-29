@@ -356,7 +356,19 @@ const ConferenceDetails = () => (
         <span className="conf-date-icon">📄</span>
         <div>
           <div className="conf-date-label">Paper Submission Deadline</div>
-          <div className="conf-date-value">30 September 2026</div>
+          <div className="conf-date-value">
+            <span
+              style={{
+                textDecoration: 'line-through',
+                textDecorationColor: 'red',
+                textDecorationThickness: '2px',
+                marginRight: '8px'
+              }}
+            >
+              30 September 2026
+            </span>
+            12 October 2026
+          </div>
         </div>
       </div>
     </div>
@@ -547,13 +559,15 @@ const ImportantDates = () => {
   const dates = [
     {
       label: 'Paper Submission Deadline',
-      date: 'September 30, 2026',
+      oldDate: 'September 30, 2026',
+      date: 'October 12, 2026',
       icon: '📝',
       color: 'blue',
     },
     {
       label: 'Notification of Acceptance',
-      date: 'October 30, 2026',
+      oldDate: 'October 30, 2026',
+      date: 'November 5, 2026',
       icon: '📬',
       color: 'teal',
     },
@@ -595,7 +609,22 @@ const ImportantDates = () => {
             >
               {/* Left: date */}
               <div className="timeline-date-col">
-                <div className="timeline-date">{item.date}</div>
+                <div className="timeline-date">
+                  {item.oldDate && (
+                    <span
+                      style={{
+                        textDecoration: 'line-through',
+                        textDecorationColor: 'red',
+                        textDecorationThickness: '2px',
+                        marginRight: '8px',
+                        opacity: 0.75
+                      }}
+                    >
+                      {item.oldDate}
+                    </span>
+                  )}
+                  <span>{item.date}</span>
+                </div>
               </div>
 
               {/* Center: dot */}
@@ -669,8 +698,8 @@ const SpeakersPage = () => {
     {
       name: 'Dr. Pradeep Kumar Dabla',
       title: 'Director Professor & Head, Department of Biochemistry, G.B. Pant Institute of Postgraduate Medical Education & Research (GIPMER), India',
-      description:'Prof. (Dr.) Pradeep Kumar Dabla is a laboratory physician and academician with over 25 years of experience in laboratory quality management, medical devices, molecular biology, clinical research, and artificial intelligence. He actively contributes to national regulatory and quality bodies, such as National Medical Commission (NMC) and other NABL QCI as Lead & Technical Assessor (ISO 15189:2022, ISO 17043:2023), National Faculty, and expert committee.',
-      image:'./prdab.jpg'
+      description: 'Prof. (Dr.) Pradeep Kumar Dabla is a laboratory physician and academician with over 25 years of experience in laboratory quality management, medical devices, molecular biology, clinical research, and artificial intelligence. He actively contributes to national regulatory and quality bodies, such as National Medical Commission (NMC) and other NABL QCI as Lead & Technical Assessor (ISO 15189:2022, ISO 17043:2023), National Faculty, and expert committee.',
+      image: './prdab.jpg'
     },
     {
       name: 'Dr. Vitawat Sittakul',
@@ -901,12 +930,28 @@ const ContributionTracksPage = () => {
         'Intelligent Data Analysis and Decision Support Systems',
         'Natural Language Processing and Understanding',
         'Computer Vision and Pattern Recognition',
+        'IoT and Edge Computing',
         'Robotics and Autonomous Systems',
         'Internet of Things (IoT) and Intelligent Systems Integration',
         'Intelligent Surveillance and Monitoring Systems',
         'Security in Intelligent Transportation Systems',
         'Ethical and Legal Implications of Intelligent Systems',
         'Societal Impact of AI and Intelligent Systems',
+        'Cloud and Distributed Computing',
+        'Intelligent Communication Networks',
+        'Satellite Data Analytics',
+        'Land, Ocean and Atmospheric Monitoring',
+        'Intelligent Satellite Payloads',
+        'Digital Twins for Satellites and Space Systems',
+        '5G/6G and Next-Generation ICT',
+        'Smart Cities and Smart Infrastructure',
+        'ICT for Healthcare',
+        'ICT for Agriculture',
+        'E-Governance and Digital Transformation',
+        'Human–Computer Interaction',
+        'Emerging ICT Applications',
+        'Satellite Navigation and Positioning',
+        'Satellite IoT',
       ],
     },
     {
@@ -916,6 +961,7 @@ const ContributionTracksPage = () => {
       color: 'gold',
       topics: [
         'Network and System Security',
+        'Wireless and Mobile Security',
         'Physical Layer Security',
         'Security in Cloud Computing, Big Data, and IoT Environments',
         'Malware Detection and Vulnerability Analysis',
@@ -925,6 +971,14 @@ const ContributionTracksPage = () => {
         'Ethical Hacking and Penetration Testing',
         'Cyber Risk Management and Governance',
         'Blockchain Technology and Security Applications',
+        'Edge Computing Security',
+        '5G/6G Security',
+        'Communication Protocol Security',
+        'Privacy in ICT Systems',
+        'Data and Information Security',
+        'Intrusion Detection for Space Systems',
+        'Space Cyber Threat Detection',
+        'Secure Satellite Networks',
       ],
     },
     {
@@ -934,6 +988,8 @@ const ContributionTracksPage = () => {
       color: 'teal',
       topics: [
         'Security in Artificial Intelligence and ML Systems',
+        'AI for Network Security',
+        'Intelligent IoT Security',
         'Adversarial Attacks and Defenses in AI',
         'Privacy-Aware Computing and Differential Privacy',
         'Federated Learning and Secure Distributed AI',
@@ -943,6 +999,12 @@ const ContributionTracksPage = () => {
         'Generative AI Security and Safety',
         'Biometric Systems Security',
         'Human-Computer Interaction in Security Contexts',
+        'AI-enabled Cyber-Physical Systems',
+        'Intelligent Intrusion Detection',
+        'AI for Communication Security',
+        'Intelligent Edge/Cloud Security',
+        'Autonomous Security Systems',
+        'Security of Emerging ICT Technologies',
       ],
     },
   ];
