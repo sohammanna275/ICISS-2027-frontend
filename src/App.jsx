@@ -2,6 +2,208 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import './App.css';
 
+/* Entrance styles are scoped; keep your existing App.css. */
+const GATE_IMAGE = '/iiest-gate.png';
+const gateStyles = `
+  .iciss-gate-journey { position:relative; isolation:isolate; overflow:clip; }
+  .iciss-gate-stage { position:sticky; top:0; }
+  .iciss-gate-content { min-height:100svh; transform-origin:50% 35%; }
+  .iciss-gate-content[inert] { pointer-events:none; }
+  .iciss-gate-scene { position:absolute; inset:0 0 auto; height:100svh; height:var(--gate-height,100svh); overflow:hidden; z-index:20; color:#fff; background:transparent; font-family:inherit; }
+  .iciss-gate-photo { position:absolute; max-width:none; display:block; transform-origin:56.8% 72%; will-change:transform,opacity; }
+  .iciss-gate-shade { position:absolute; inset:0; background:linear-gradient(180deg,rgba(4,12,25,.78),rgba(4,12,25,.08) 42%,rgba(4,12,25,.20) 62%,rgba(4,12,25,.88)),linear-gradient(100deg,rgba(29,111,232,.12),transparent 60%,rgba(201,168,76,.13)); pointer-events:none; }
+  .iciss-gate-top { position:absolute; top:max(28px,env(safe-area-inset-top)); left:clamp(22px,5vw,80px); right:clamp(22px,5vw,80px); display:flex; align-items:center; justify-content:space-between; gap:20px; }
+  .iciss-gate-brand { display:flex; flex-direction:column; gap:7px; }
+  .iciss-gate-brand strong { font-size:20px; letter-spacing:.16em; color:#f0c958; }
+  .iciss-gate-brand span { font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:#e4eaf4; }
+  .iciss-gate-skip { appearance:none; border:1px solid #ffffff66; border-radius:999px; background:#06122666; color:#fff; padding:12px 20px; cursor:pointer; font:inherit; font-size:12px; }
+  .iciss-gate-skip:hover { background:#16345c; border-color:#c9a84c; }
+  .iciss-gate-copy { position:absolute; left:clamp(22px,5vw,80px); top:clamp(115px,20vh,210px); max-width:min(700px,85vw); pointer-events:none; }
+  .iciss-gate-kicker { display:flex; align-items:center; gap:12px; color:#f0c958; font-size:11px; letter-spacing:.23em; text-transform:uppercase; }
+  .iciss-gate-kicker::before { content:''; width:32px; height:1px; background:currentColor; }
+  .iciss-gate-copy h2 { font-size:clamp(38px,6.6vw,96px); line-height:1.02; font-weight:500; letter-spacing:-.055em; margin:22px 0 18px; color:#fff; text-shadow:0 3px 32px #0008; }
+  .iciss-gate-copy h2 em { font-style:normal; color:#f0c958; }
+  .iciss-gate-copy p { font-size:clamp(13px,1.15vw,16px); line-height:1.7; max-width:380px; color:#edf1f7; }
+  .iciss-gate-bottom { position:absolute; left:clamp(22px,5vw,80px); right:clamp(22px,5vw,80px); bottom:max(30px,env(safe-area-inset-bottom)); display:flex; align-items:flex-end; justify-content:space-between; gap:24px; }
+  .iciss-gate-enter { appearance:none; display:flex; align-items:center; gap:18px; border:0; padding:0; background:none; color:#fff; cursor:pointer; text-align:left; font:inherit; }
+  .iciss-gate-enter svg { width:48px; height:48px; padding:14px; box-sizing:border-box; border:1px solid #c9a84c; border-radius:50%; color:#f0c958; }
+  .iciss-gate-enter strong { display:block; font-size:14px; font-weight:500; }
+  .iciss-gate-enter small { display:block; font-size:10px; letter-spacing:.12em; text-transform:uppercase; margin-top:7px; color:#d9e2f1; }
+  .iciss-gate-location { text-align:right; font-size:10px; letter-spacing:.12em; line-height:1.9; text-transform:uppercase; color:#e4eaf4; }
+  .iciss-gate-progress { position:absolute; bottom:0; left:0; height:2px; width:100%; transform:scaleX(0); transform-origin:left; background:linear-gradient(90deg,#1d6fe8,#c9a84c); }
+  .iciss-gate-scene button:focus-visible { outline:3px solid #f0c958; outline-offset:6px; }
+  body[data-iciss-gate='active'] .navbar-header { visibility:hidden; pointer-events:none; }
+  @media(max-width:600px) { .iciss-gate-copy { top:21%; } .iciss-gate-copy h2 { font-size:clamp(40px,11vw,62px); } .iciss-gate-location { display:none; } .iciss-gate-brand strong { font-size:16px; } .iciss-gate-skip { padding:10px 14px; } }
+  @media(max-height:500px) and (orientation:landscape) { .iciss-gate-copy { top:90px; } .iciss-gate-copy h2 { font-size:38px; margin:12px 0; } .iciss-gate-copy p { display:none; } .iciss-gate-bottom { bottom:18px; } }
+  @media(prefers-reduced-motion:reduce) { .iciss-gate-content { transform:none!important; } }
+`;
+
+const GateEntrance = ({ children }) => {
+  const { hash } = useLocation();
+  const rootRef = useRef(null);
+  const stageRef = useRef(null);
+  const contentRef = useRef(null);
+  const sceneRef = useRef(null);
+  const photoRef = useRef(null);
+  const chromeRef = useRef(null);
+  const progressRef = useRef(null);
+  const travelRef = useRef(0);
+  const [failed, setFailed] = useState(false);
+  const [reduced, setReduced] = useState(() =>
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
+  const bypass = reduced || failed || Boolean(hash);
+
+  useEffect(() => {
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReduced(query.matches);
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
+
+  useEffect(() => {
+    const root = rootRef.current;
+    const content = contentRef.current;
+    if (bypass || !root || !content) {
+      delete document.body.dataset.icissGate;
+      return;
+    }
+    const photo = photoRef.current;
+    const scene = sceneRef.current;
+    const chrome = chromeRef.current;
+    let frame = 0;
+    let viewportHeight = window.innerHeight;
+    let imageWidth = 0, imageHeight = 0, imageLeft = 0, imageTop = 0;
+    let activeBefore = null;
+    const clamp = (value, low = 0, high = 1) => Math.min(high, Math.max(low, value));
+    const smooth = (a, b, value) => {
+      const t = clamp((value - a) / (b - a));
+      return t * t * (3 - 2 * t);
+    };
+    const paint = () => {
+      frame = 0;
+      const p = clamp(-root.getBoundingClientRect().top / travelRef.current);
+      const zoom = smooth(0, .94, p);
+      const scale = 1 + 5.5 * zoom;
+      const dx = (root.clientWidth / 2 - (imageLeft + imageWidth * .568)) * zoom;
+      const dy = (viewportHeight * .5 - (imageTop + imageHeight * .72)) * zoom;
+      photo.style.transform = `translate3d(${dx}px,${dy}px,0) scale(${scale})`;
+      photo.style.opacity = String(1 - smooth(.73, .99, p));
+      // Expand a soft opening from the real gate passage, in image coordinates.
+      const radius = smooth(.30, .88, p) * Math.max(imageWidth, imageHeight) * .55;
+      const feather = Math.max(8, radius * .2);
+      const mask = p <= .30 ? 'none' : `radial-gradient(circle at 56.8% 72%, transparent ${Math.max(0, radius - feather)}px, #000 ${radius + feather}px)`;
+      photo.style.maskImage = mask;
+      photo.style.webkitMaskImage = mask;
+      chrome.style.opacity = String(1 - smooth(.03, .32, p));
+      chrome.style.transform = `translate3d(0,${-40 * smooth(0, .4, p)}px,0)`;
+      chrome.style.pointerEvents = p < .28 ? 'auto' : 'none';
+      chrome.inert = p >= .28;
+      content.style.transform = `scale(${1.06 - .06 * smooth(.25, 1, p)})`;
+      progressRef.current.style.transform = `scaleX(${p})`;
+      const active = p < .995;
+      if (active !== activeBefore) {
+        activeBefore = active;
+        content.inert = active;
+        if (active) content.setAttribute('aria-hidden', 'true');
+        else content.removeAttribute('aria-hidden');
+        scene.style.visibility = active ? 'visible' : 'hidden';
+        scene.style.pointerEvents = active ? 'auto' : 'none';
+        if (active) document.body.dataset.icissGate = 'active';
+        else delete document.body.dataset.icissGate;
+      }
+    };
+    const schedule = () => { if (!frame) frame = requestAnimationFrame(paint); };
+    const measure = () => {
+      viewportHeight = window.innerHeight;
+      const width = root.clientWidth;
+      travelRef.current = viewportHeight * 2;
+      root.style.height = `${content.offsetHeight + travelRef.current}px`;
+      root.style.setProperty('--gate-height', `${viewportHeight}px`);
+      // Cover the viewport while keeping the passage in view on portrait screens.
+      const cover = Math.max(width / 1184, viewportHeight / 864);
+      imageWidth = 1184 * cover;
+      imageHeight = 864 * cover;
+      imageLeft = clamp(width * .5 - imageWidth * .568, width - imageWidth, 0);
+      imageTop = clamp(viewportHeight * .67 - imageHeight * .72, viewportHeight - imageHeight, 0);
+      Object.assign(photo.style, { width: `${imageWidth}px`, height: `${imageHeight}px`, left: `${imageLeft}px`, top: `${imageTop}px` });
+      schedule();
+    };
+    const observer = new ResizeObserver(measure);
+    observer.observe(content);
+    observer.observe(stageRef.current);
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', measure);
+    measure();
+    cancelAnimationFrame(frame);
+    paint();
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', measure);
+      delete document.body.dataset.icissGate;
+      content.inert = false;
+      content.removeAttribute('aria-hidden');
+      content.style.transform = '';
+      root.style.height = '';
+    };
+  }, [bypass]);
+
+  const enter = (instant = false) => {
+    const root = rootRef.current;
+    if (!root) return;
+    // Native scrolling supports touch, wheel, keyboard and interruption.
+    const top = window.scrollY + root.getBoundingClientRect().top + travelRef.current;
+    if (instant) {
+      window.scrollTo({ top, behavior: 'instant' });
+      contentRef.current.inert = false;
+      const title = contentRef.current.querySelector('h1');
+      if (title) { title.setAttribute('tabindex', '-1'); title.focus({ preventScroll: true }); }
+    } else window.scrollTo({ top, behavior: 'smooth' });
+  };
+
+  return (
+    <>
+      <style>{gateStyles}</style>
+      <section ref={rootRef} className="iciss-gate-journey" aria-label="Welcome to ICISS 2027">
+        <div ref={stageRef} className="iciss-gate-stage" style={bypass ? { position: 'relative' } : undefined}>
+          <div ref={contentRef} className="iciss-gate-content">{children}</div>
+          {!bypass && (
+            <div ref={sceneRef} className="iciss-gate-scene">
+              <img ref={photoRef} className="iciss-gate-photo" src={GATE_IMAGE}
+                alt="Entrance gate of IIEST Shibpur" width="1184" height="864"
+                loading="eager" decoding="async" onError={() => setFailed(true)} />
+              <div ref={chromeRef} style={{ position: 'absolute', inset: 0 }}>
+                <div className="iciss-gate-shade" />
+                <div className="iciss-gate-top">
+                  <div className="iciss-gate-brand"><strong>ICISS 2027</strong><span>IIEST Shibpur · India</span></div>
+                  <button type="button" className="iciss-gate-skip" onClick={() => enter(true)}>Skip intro ↗</button>
+                </div>
+                <div className="iciss-gate-copy">
+                  <div className="iciss-gate-kicker">An invitation to discovery</div>
+                  <h2>Step inside.<br /><em>Think beyond.</em></h2>
+                  <p>Through these gates, ideas meet possibility.<br />Welcome to ICISS 2027.</p>
+                </div>
+                <div className="iciss-gate-bottom">
+                  <button type="button" className="iciss-gate-enter" onClick={() => enter(false)}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6" /></svg>
+                    <span><strong>Enter the conference</strong><small>Scroll to explore · or click to enter</small></span>
+                  </button>
+                  <div className="iciss-gate-location">14–16 January 2027<br />Intelligent Systems &amp; Security</div>
+                </div>
+              </div>
+              <div ref={progressRef} className="iciss-gate-progress" />
+            </div>
+          )}
+        </div>
+      </section>
+    </>
+  );
+};
+
+
+
 /* ─────────────────────────────────────────────────────
    PARTICLE CANVAS — floating starfield
 ───────────────────────────────────────────────────── */
@@ -67,17 +269,22 @@ const ParticleCanvas = () => {
      element so in-viewport ones animate immediately
 ───────────────────────────────────────────────────── */
 const RouteHandler = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
     // 1. Scroll to top instantly
-    window.scrollTo(0, 0);
+    if (!hash) window.scrollTo({ top: 0, behavior: 'instant' });
 
     // 2. Strip stale 'visible' flags from the previous page
     document.querySelectorAll('.reveal.visible').forEach(el => el.classList.remove('visible'));
 
     // 3. Wait one frame for React to paint the new page, then observe
     const raf = requestAnimationFrame(() => {
+      if (hash) {
+        let id;
+        try { id = decodeURIComponent(hash.slice(1)); } catch { id = hash.slice(1); }
+        document.getElementById(id)?.scrollIntoView({ behavior: 'instant' });
+      }
       const obs = new IntersectionObserver(
         entries => {
           entries.forEach(e => {
@@ -100,7 +307,7 @@ const RouteHandler = () => {
       cancelAnimationFrame(raf);
       if (window.__revealObs) { window.__revealObs.disconnect(); window.__revealObs = null; }
     };
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return null;
 };
@@ -323,7 +530,7 @@ const Hero = () => (
     </div>
 
     {/* Scroll indicator */}
-    <div className="scroll-indicator" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>
+    <div className="scroll-indicator" onClick={() => document.querySelector('.conf-date-section')?.scrollIntoView({ behavior: 'smooth' })}>
       <span className="scroll-text">Scroll</span>
       <div className="scroll-track"><div className="scroll-fill" /></div>
     </div>
@@ -1352,7 +1559,7 @@ export default function App() {
             <Routes>
               <Route path="/" element={
                 <>
-                  <Hero />
+                  <GateEntrance><Hero /></GateEntrance>
                   <ConferenceDetails />
                   <VenueSection />
                   <AddressSection />
