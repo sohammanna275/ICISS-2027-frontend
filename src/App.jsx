@@ -1330,7 +1330,7 @@ const RegistrationPage = () => {
   return (
     <section className="page-section">
       <div className="section-tag centered reveal">Register</div>
-      <h1 className="section-title reveal">Conference Registration Fee</h1>
+      <h1 className="section-title reveal">Conference Registration Fee +</h1>
 
       <div className="reg-table-wrap reveal">
         <table className="reg-table">
@@ -1351,8 +1351,8 @@ const RegistrationPage = () => {
             {fees.map((r, i) => (
               <tr key={i} className="reg-row">
                 <td className="reg-td-cat">{r.category}<br /><span className="reg-unit">(per paper/person)</span></td>
-                <td className="reg-td">{r.indianEarly}</td>
-                <td className="reg-td">{r.indianLate}</td>
+                <td className="reg-td">{r.indianEarly} + <span style={{ color: '#d92d2d', fontWeight: 600 }}>₹{(Number(r.indianEarly.replace(/[^0-9.]/g, '')) * 0.18).toLocaleString('en-IN', { maximumFractionDigits: 2 })}*</span></td>
+                <td className="reg-td">{r.indianLate} + <span style={{ color: '#d92d2d', fontWeight: 600 }}>₹{(Number(r.indianLate.replace(/[^0-9.]/g, '')) * 0.18).toLocaleString('en-IN', { maximumFractionDigits: 2 })}*</span></td>
                 <td className="reg-td">{r.foreignEarly}</td>
                 <td className="reg-td">{r.foreignLate}</td>
               </tr>
@@ -1360,7 +1360,10 @@ const RegistrationPage = () => {
           </tbody>
         </table>
         <p className="reg-gst-note" style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: '#d92d2d', fontWeight: 500 }}>
-          * 18% GST will be added extra to the above fees.
+          * 18% GST
+        </p>
+        <p className="reg-paper-note" style={{ marginTop: '0.5rem', fontSize: '0.85rem' }}>
+          Per accepted paper
         </p>
       </div>
 
