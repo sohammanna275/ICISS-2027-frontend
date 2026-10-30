@@ -406,8 +406,12 @@ const Navbar = () => {
   return (
     <header className={`navbar-header ${scrolled ? 'navbar-scrolled' : ''}`} ref={navRef}>
       <div className="navbar-inner">
-        <Link to="/" className="navbar-logo-wrap" onClick={closeAll}>
-          <img src="./ICISS2027logo.png" alt="ICISS 2027 Logo" className="navbar-logo" />
+        <Link to="/" className="navbar-logo-wrap navbar-logo-left" onClick={closeAll}>
+          <img
+            src="/iiestlogo.png"
+            alt="IIEST Shibpur Logo"
+            className="navbar-logo"
+          />
         </Link>
 
         <nav className="navbar-links">
@@ -439,7 +443,13 @@ const Navbar = () => {
 
           <Link to="/contact" className="nav-link" onClick={closeAll}>Contact Us</Link>
         </nav>
-
+        <Link to="/" className="navbar-logo-wrap navbar-logo-right" onClick={closeAll}>
+          <img
+            src="/ICISS2027logo.png"
+            alt="ICISS 2027 Logo"
+            className="navbar-logo"
+          />
+        </Link>
         <button className="hamburger" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
           <span className={`ham-line ${mobileOpen ? 'open-1' : ''}`} />
           <span className={`ham-line ${mobileOpen ? 'open-2' : ''}`} />
@@ -525,6 +535,50 @@ const Hero = () => (
         <div className="hero-cta-row">
           <Link to="/submit-paper" className="btn-primary">Submit Paper →</Link>
           <Link to="/registration" className="btn-secondary">Register Now</Link>
+        </div>
+        <div className="hero-partners">
+          <section className="hero-partner-group" aria-labelledby="technical-sponsor">
+            <h2 id="technical-sponsor" className="hero-partner-heading">
+              Technically Co-Sponsored by
+            </h2>
+
+            <div className="hero-partner-list">
+              <div className="hero-partner">
+                <div className="hero-partner-logo">
+                  <img src="/cdac-logo.jpg" alt="C-DAC logo" />
+                </div>
+                <p>C-DAC Kolkata</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="hero-partner-group" aria-labelledby="supported-by">
+            <h2 id="supported-by" className="hero-partner-heading">
+              Supported by
+            </h2>
+
+            <div className="hero-partner-list">
+              <div className="hero-partner">
+                <div className="hero-partner-logo">
+                  <img
+                    src="/meity.jpeg"
+                    alt="Ministry of Electronics and Information Technology, Government of India"
+                  />
+                </div>
+                <p>
+                  Ministry of Electronics and Information Technology
+                  <span>Government of India</span>
+                </p>
+              </div>
+
+              <div className="hero-partner">
+                <div className="hero-partner-logo">
+                  <img src="/springer-logo.jpg" alt="Springer logo" />
+                </div>
+                <p>Springer</p>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>
@@ -1330,7 +1384,7 @@ const RegistrationPage = () => {
   return (
     <section className="page-section">
       <div className="section-tag centered reveal">Register</div>
-      <h1 className="section-title reveal">Conference Registration Fee +</h1>
+      <h1 className="section-title reveal">Conference Registration Fee + GST</h1>
 
       <div className="reg-table-wrap reveal">
         <table className="reg-table">
@@ -1353,8 +1407,8 @@ const RegistrationPage = () => {
                 <td className="reg-td-cat">{r.category}<br /><span className="reg-unit">(per paper/person)</span></td>
                 <td className="reg-td">{r.indianEarly} + <span style={{ color: '#d92d2d', fontWeight: 600 }}>₹{(Number(r.indianEarly.replace(/[^0-9.]/g, '')) * 0.18).toLocaleString('en-IN', { maximumFractionDigits: 2 })}*</span></td>
                 <td className="reg-td">{r.indianLate} + <span style={{ color: '#d92d2d', fontWeight: 600 }}>₹{(Number(r.indianLate.replace(/[^0-9.]/g, '')) * 0.18).toLocaleString('en-IN', { maximumFractionDigits: 2 })}*</span></td>
-                <td className="reg-td">{r.foreignEarly}</td>
-                <td className="reg-td">{r.foreignLate}</td>
+                <td className="reg-td">{r.foreignEarly} + <span style={{ color: '#d92d2d', fontWeight: 600 }}>${(Number(r.foreignEarly.replace(/[^0-9.]/g, '')) * 0.18).toLocaleString('en-US', { maximumFractionDigits: 2 })}*</span></td>
+                <td className="reg-td">{r.foreignLate} + <span style={{ color: '#d92d2d', fontWeight: 600 }}>${(Number(r.foreignLate.replace(/[^0-9.]/g, '')) * 0.18).toLocaleString('en-US', { maximumFractionDigits: 2 })}*</span></td>
               </tr>
             ))}
           </tbody>
@@ -1367,6 +1421,22 @@ const RegistrationPage = () => {
         </p>
       </div>
 
+      <div className="reg-payment-qr reveal" style={{ margin: '2rem auto', maxWidth: '560px', textAlign: 'center' }}>
+        <h2 className="bank-title">Scan &amp; Pay</h2>
+        <p style={{ margin: '0.75rem 0', lineHeight: 1.6 }}>Scan the QR code using any UPI app to pay your registration fee including GST.</p>
+        <a href="/registration_qr.png" target="_blank" rel="noopener noreferrer" aria-label="Open payment QR image at full size">
+          <img
+            src="/registration_qr.png"
+            alt="Payment QR code for Continuing Education Centre BESUS, UPI ID 9432104410m@pnb"
+            width="1200"
+            height="1600"
+            loading="lazy"
+            style={{ display: 'block', width: '100%', maxWidth: '560px', height: 'auto', margin: '1rem auto', borderRadius: '12px' }}
+          />
+        </a>
+        <p style={{ marginTop: '0.75rem', overflowWrap: 'anywhere' }}><strong>UPI ID:</strong> 9432104410m@pnb</p>
+        <p style={{ marginTop: '0.5rem', fontSize: '0.85rem' }}>Tap the image to view the QR code at full size.</p>
+      </div>
       <div className="reg-notice reveal">
         <div className="reg-notice-icon">⚠️</div>
         <div>
