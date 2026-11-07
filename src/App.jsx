@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import './App.css';
 
+const REGISTRATION_URL = 'https://script.google.com/macros/s/AKfycbx3zO5sWYuCrEC7cMywHj3QG8q6o4f83GHSBMSaOv-Ph-2FTbDusKqW3_h3pLGUM5DvCw/exec';
+
 /* Entrance styles are scoped; keep your existing App.css. */
 const GATE_IMAGE = '/iiest-gate.png';
 const gateStyles = `
@@ -533,8 +535,11 @@ const Hero = () => (
         <Countdown />
 
         <div className="hero-cta-row">
-          <Link to="/submit-paper" className="btn-primary">Submit Paper →</Link>
-          <Link to="/registration" className="btn-secondary">Register Now</Link>
+          <a href={REGISTRATION_URL} target="_blank" rel="noopener noreferrer"
+            className="btn-secondary" style={{ flexDirection: 'column', gap: '0.25rem', textAlign: 'center' }}>
+            Register Now
+            <span style={{ display: 'block', fontSize: '0.75rem', fontWeight: 400, lineHeight: 1.4 }}>(For Non-Author Attendee)</span>
+          </a>
         </div>
         <div className="hero-partners">
           <section className="hero-partner-group" aria-labelledby="technical-sponsor">
@@ -1421,22 +1426,6 @@ const RegistrationPage = () => {
         </p>
       </div>
 
-      <div className="reg-payment-qr reveal" style={{ margin: '2rem auto', maxWidth: '560px', textAlign: 'center' }}>
-        <h2 className="bank-title">Scan &amp; Pay</h2>
-        <p style={{ margin: '0.75rem 0', lineHeight: 1.6 }}>Scan the QR code using any UPI app to pay your registration fee including GST.</p>
-        <a href="/registration_qr.png" target="_blank" rel="noopener noreferrer" aria-label="Open payment QR image at full size">
-          <img
-            src="/registration_qr.png"
-            alt="Payment QR code for Continuing Education Centre BESUS, UPI ID 9432104410m@pnb"
-            width="1200"
-            height="1600"
-            loading="lazy"
-            style={{ display: 'block', width: '100%', maxWidth: '560px', height: 'auto', margin: '1rem auto', borderRadius: '12px' }}
-          />
-        </a>
-        <p style={{ marginTop: '0.75rem', overflowWrap: 'anywhere' }}><strong>UPI ID:</strong> 9432104410m@pnb</p>
-        <p style={{ marginTop: '0.5rem', fontSize: '0.85rem' }}>Tap the image to view the QR code at full size.</p>
-      </div>
       <div className="reg-notice reveal">
         <div className="reg-notice-icon">⚠️</div>
         <div>
@@ -1445,8 +1434,12 @@ const RegistrationPage = () => {
         </div>
       </div>
 
-      <div className="reg-cta reveal">
-        <button className="btn-primary" style={{ fontSize: '1rem', padding: '0.9rem 3rem' }}>Register Now</button>
+      <div className="reg-cta reveal" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <p style={{ margin: '0 0 1rem', lineHeight: 1.6, textAlign: 'center' }}>
+          For Non-Author Attendee Registration and Accompanying Person Registration (with Author), please click the Register Now button below.
+        </p>
+        <a href={REGISTRATION_URL} target="_blank" rel="noopener noreferrer"
+          className="btn-primary" style={{ fontSize: '1rem', padding: '0.9rem 3rem' }}>Register Now</a>
       </div>
 
       <div className="bank-table-wrap reveal">
