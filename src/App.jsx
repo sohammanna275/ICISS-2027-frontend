@@ -1384,6 +1384,8 @@ const RegistrationPage = () => {
     ['Account Number', '1532010011963'],
     ['IFSC', 'PUNB0153220'],
     ['MICR Code', '700024396'],
+    ['Swift Code', 'PUNBINBBPST'],
+    ['Branch Code', '153220'],
   ];
 
   return (
