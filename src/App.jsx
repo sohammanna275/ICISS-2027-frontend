@@ -1380,10 +1380,10 @@ const RegistrationPage = () => {
   const bank = [
     ['Account Name', 'CONTINUING EDUCATION CENTRE BESUS'],
     ['Bank Name', 'PUNJAB NATIONAL BANK'],
-    ['Branch Name', 'IIESTS BRANCH'],
+    ['Branch Name', 'BESUS BRANCH'],
     ['Account Number', '1532010011963'],
     ['IFSC', 'PUNB0153220'],
-    ['MICR Code', '700024356'],
+    ['MICR Code', '700024396'],
   ];
 
   return (
