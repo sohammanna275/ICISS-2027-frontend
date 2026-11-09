@@ -1378,7 +1378,7 @@ const RegistrationPage = () => {
   ];
 
   const bank = [
-    ['Account Name', 'CONTINUING EDUCATION CENTRE IIESTS'],
+    ['Account Name', 'CONTINUING EDUCATION CENTRE BESUS'],
     ['Bank Name', 'PUNJAB NATIONAL BANK'],
     ['Branch Name', 'IIESTS BRANCH'],
     ['Account Number', '1532010011963'],
