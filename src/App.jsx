@@ -1381,7 +1381,7 @@ const RegistrationPage = () => {
     ['Account Name', 'CONTINUING EDUCATION CENTRE IIESTS'],
     ['Bank Name', 'PUNJAB NATIONAL BANK'],
     ['Branch Name', 'IIESTS BRANCH'],
-    ['Account Number', '1532010011063'],
+    ['Account Number', '1532010011963'],
     ['IFSC', 'PUNB0153220'],
     ['MICR Code', '700024356'],
   ];
