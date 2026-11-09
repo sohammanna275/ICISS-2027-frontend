@@ -934,65 +934,90 @@ const ContactPage = () => (
           </div>
         ))}
       </div>
-    </div>
+    </div>  
   </section>
 );
 
 /* ─────────────────────────────────────────────────────
    SPEAKERS PAGE
 ───────────────────────────────────────────────────── */
-const SpeakersPage = () => {
-  const speakers = [
-    {
-      name: 'Professor Ajoy Kumar Ray',
-      title: 'Indian Institute of Technology Kharagpur, India',
-      description: "Prof. Ray has successfully completed twenty research projects and several consultancy projects, sponsored by several agencies like Defence Research & Development Organization, Department of Atomic Energy, Department of Science and Technology, INDAL and so on. He was the Principal Investigator of research projects, sponsored by Intel Corporation during 1997 – 2004. During the course of this research project, he was the co inventor of six US patents jointly with Intel Corporation.",
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Ajoy_Kumar_Ray_-_Kolkata_2015-11-17_5154.JPG/500px-Ajoy_Kumar_Ray_-_Kolkata_2015-11-17_5154.JPG'
-    },
-    {
-      name: 'Dr. Pranab Kumar Das Gupta',
-      title: 'Scientist G, DRDO, India',
-      description: 'Dr. Pranab Kumar Das Gupta is a Computer Scientist, management professional, author, and AI educator with 36+ years of experience. He holds a Ph.D. in Computer Science, with executive training from IIM Ahmedabad, IIM Calcutta, and IIM Lucknow, and has authored 20 books. His work focuses on making AI practical and accessible through research, writing, and training in AI, digital transformation, and AI-enabled management.',
-      image: './pkd.jpeg'
-    },
-    {
-      name: 'Prof. Mao-Hsiu Hsu',
-      title: 'Department of Electro-Optical Engineering, National Formosa University (NFU), Taiwan',
-      description: "Prof. Mao-Hsiu Hsu (徐茂修) is an Associate Professor in the Department of Electro-Optical Engineering at National Formosa University (NFU), Taiwan, where he leads the AI SoC System Laboratory (AISCLab). He also serves in affiliated roles with the Taiwan Academic Cybersecurity Center (TACC) and NFU's Computer Center. He brings extensive joint experience spanning the semiconductor/IC design industry and academia, including leadership and technical roles at FocalTech Electronics (Director/Senior Technical Manager), Foxconn, Primax, Chung-Hwa Telecom, and Motorola. His core research bridges artificial intelligence with hardware and cybersecurity applications, spanning deep learning and image signal processing (DeepFake GAN/Diffusion detection, biometric security, image inpainting), AI hardware and IC design (TinyML MCU design, SoC design, edge AI acceleration, high-speed SerDes/RF circuitry), and cybersecurity and edge computing (decentralized frameworks, DDoS detection, federated learning, blockchain security). He has published over 100 technical papers, holds numerous patents, and contributes actively to top-tier IEEE journals and international computer vision and security conferences.",
-      image: './image.png'
-    },
-    {
-      name: 'Dr. Pradeep Kumar Dabla',
-      title: 'Director Professor & Head, Department of Biochemistry, G.B. Pant Institute of Postgraduate Medical Education & Research (GIPMER), India',
-      description: 'Prof. (Dr.) Pradeep Kumar Dabla is a laboratory physician and academician with over 25 years of experience in laboratory quality management, medical devices, molecular biology, clinical research, and artificial intelligence. He actively contributes to national regulatory and quality bodies, such as National Medical Commission (NMC) and other NABL QCI as Lead & Technical Assessor (ISO 15189:2022, ISO 17043:2023), National Faculty, and expert committee.',
-      image: './prdab.jpg'
-    },
-    {
-      name: 'Dr. Vitawat Sittakul',
-      title: 'Associate Professor, King Mongkut’s University of Technology North Bangkok (KMUTNB), Thailand',
-      description: "Dr. Vitawat Sittakul is an Associate Professor in the Department of Electrical and Electronics Engineering Technology and the Head of the 5G and Beyond Wireless Innovation Center at King Mongkut’s University of Technology North Bangkok (KMUTNB), Thailand.He received his B.Eng. in Telecommunication from Chulalongkorn University (2000), an M.Sc. with distinction in Optical and Communication Systems from Northumbria University (2003), and a Ph.D. from the Department of Electrical and Electronic Engineering at the University of Bristol (2006) as a Thai Government scholar.With over 15 years of combined industrial, governmental, and academic experience, Dr. Sittakul has served as a Measurement Engineer at Fabinet, a Senior RF Engineer at AIS, an RF Metrologist at the National Institute of Metrology (Thailand), and a technical consultant for telecommunication firms such as FPRI and TelcoEconomics. He has delivered more than 6 international keynote addresses and has authored 14 journal articles and 37 conference proceedings. His primary research interests include RF devices, antenna measurement, optical communication, wireless communication, RF-over-fiber, active integrated antennas, IoT smart plugs, wireless sensor networks, and fuzzy logic-controlled solar tracking systems.",
-      image: './thai.jpeg'
-    }
-  ];
-  return (
-    <section className="page-section">
-      <div className="section-tag centered reveal">Keynotes</div>
-      <h1 className="section-title reveal">Our Speakers</h1>
-      <div className="speakers-grid">
-        {speakers.map((s, i) => (
-          <div key={i} className={`speaker-card reveal reveal-delay-${i + 1}`}>
-            <div className="speaker-img-wrap"><img src={s.image} alt={s.name} /></div>
-            <div className="speaker-info">
-              <h3>{s.name}</h3>
-              <p className="speaker-title">{s.title}</p>
-              <p className="speaker-desc">{s.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-};
+// const SpeakersPage = () => {
+//   const speakers = [
+//     {
+//       name: 'Professor Ajoy Kumar Ray',
+//       title: 'Indian Institute of Technology Kharagpur, India',
+//       description: "Prof. Ray has successfully completed twenty research projects and several consultancy projects, sponsored by several agencies like Defence Research & Development Organization, Department of Atomic Energy, Department of Science and Technology, INDAL and so on. He was the Principal Investigator of research projects, sponsored by Intel Corporation during 1997 – 2004. During the course of this research project, he was the co inventor of six US patents jointly with Intel Corporation.",
+//       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Ajoy_Kumar_Ray_-_Kolkata_2015-11-17_5154.JPG/500px-Ajoy_Kumar_Ray_-_Kolkata_2015-11-17_5154.JPG'
+//     },
+//     {
+//       name: 'Dr. Pranab Kumar Das Gupta',
+//       title: 'Scientist G, DRDO, India',
+//       description: 'Dr. Pranab Kumar Das Gupta is a Computer Scientist, management professional, author, and AI educator with 36+ years of experience. He holds a Ph.D. in Computer Science, with executive training from IIM Ahmedabad, IIM Calcutta, and IIM Lucknow, and has authored 20 books. His work focuses on making AI practical and accessible through research, writing, and training in AI, digital transformation, and AI-enabled management.',
+//       image: './pkd.jpeg'
+//     },
+//     {
+//       name: 'Prof. Mao-Hsiu Hsu',
+//       title: 'Department of Electro-Optical Engineering, National Formosa University (NFU), Taiwan',
+//       description: "Prof. Mao-Hsiu Hsu (徐茂修) is an Associate Professor in the Department of Electro-Optical Engineering at National Formosa University (NFU), Taiwan, where he leads the AI SoC System Laboratory (AISCLab). He also serves in affiliated roles with the Taiwan Academic Cybersecurity Center (TACC) and NFU's Computer Center. He brings extensive joint experience spanning the semiconductor/IC design industry and academia, including leadership and technical roles at FocalTech Electronics (Director/Senior Technical Manager), Foxconn, Primax, Chung-Hwa Telecom, and Motorola. His core research bridges artificial intelligence with hardware and cybersecurity applications, spanning deep learning and image signal processing (DeepFake GAN/Diffusion detection, biometric security, image inpainting), AI hardware and IC design (TinyML MCU design, SoC design, edge AI acceleration, high-speed SerDes/RF circuitry), and cybersecurity and edge computing (decentralized frameworks, DDoS detection, federated learning, blockchain security). He has published over 100 technical papers, holds numerous patents, and contributes actively to top-tier IEEE journals and international computer vision and security conferences.",
+//       image: './image.png'
+//     },
+//     {
+//       name: 'Dr. Pradeep Kumar Dabla',
+//       title: 'Director Professor & Head, Department of Biochemistry, G.B. Pant Institute of Postgraduate Medical Education & Research (GIPMER), India',
+//       description: 'Prof. (Dr.) Pradeep Kumar Dabla is a laboratory physician and academician with over 25 years of experience in laboratory quality management, medical devices, molecular biology, clinical research, and artificial intelligence. He actively contributes to national regulatory and quality bodies, such as National Medical Commission (NMC) and other NABL QCI as Lead & Technical Assessor (ISO 15189:2022, ISO 17043:2023), National Faculty, and expert committee.',
+//       image: './prdab.jpg'
+//     },
+//     {
+//       name: 'Dr. Vitawat Sittakul',
+//       title: 'Associate Professor, King Mongkut’s University of Technology North Bangkok (KMUTNB), Thailand',
+//       description: "Dr. Vitawat Sittakul is an Associate Professor in the Department of Electrical and Electronics Engineering Technology and the Head of the 5G and Beyond Wireless Innovation Center at King Mongkut’s University of Technology North Bangkok (KMUTNB), Thailand.He received his B.Eng. in Telecommunication from Chulalongkorn University (2000), an M.Sc. with distinction in Optical and Communication Systems from Northumbria University (2003), and a Ph.D. from the Department of Electrical and Electronic Engineering at the University of Bristol (2006) as a Thai Government scholar.With over 15 years of combined industrial, governmental, and academic experience, Dr. Sittakul has served as a Measurement Engineer at Fabinet, a Senior RF Engineer at AIS, an RF Metrologist at the National Institute of Metrology (Thailand), and a technical consultant for telecommunication firms such as FPRI and TelcoEconomics. He has delivered more than 6 international keynote addresses and has authored 14 journal articles and 37 conference proceedings. His primary research interests include RF devices, antenna measurement, optical communication, wireless communication, RF-over-fiber, active integrated antennas, IoT smart plugs, wireless sensor networks, and fuzzy logic-controlled solar tracking systems.",
+//       image: './thai.jpeg'
+//     }
+//   ];
+//   return (
+//     <section className="page-section">
+//       <div className="section-tag centered reveal">Keynotes</div>
+//       <h1 className="section-title reveal">Our Speakers</h1>
+//       <div className="speakers-grid">
+//         {speakers.map((s, i) => (
+//           <div key={i} className={`speaker-card reveal reveal-delay-${i + 1}`}>
+//             <div className="speaker-img-wrap"><img src={s.image} alt={s.name} /></div>
+//             <div className="speaker-info">
+//               <h3>{s.name}</h3>
+//               <p className="speaker-title">{s.title}</p>
+//               <p className="speaker-desc">{s.description}</p>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </section>
+//   );
+// };
+
+const SpeakersPage = () => (
+  <section className="page-section">
+    <div className="section-tag centered reveal">Keynotes</div>
+    <h1 className="section-title reveal">Our Speakers</h1>
+    <div
+      className="reveal"
+      style={{
+        textAlign: 'center',
+        maxWidth: '600px',
+        margin: '3rem auto 0',
+        padding: '3rem 2rem',
+        border: '1px solid rgba(201, 168, 76, 0.3)',
+        borderRadius: '18px',
+      }}
+    >
+      <h2 style={{ fontSize: 'clamp(1.7rem, 4vw, 2.5rem)', fontWeight: 600 }}>
+        To Be Decided
+      </h2>
+      <p style={{ marginTop: '1rem', opacity: 0.75 }}>
+        Speaker details will be announced soon.
+      </p>
+    </div>
+  </section>
+);
 
 /* ─────────────────────────────────────────────────────
    COMMITTEE PAGE
